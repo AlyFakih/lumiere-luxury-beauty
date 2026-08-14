@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+check_images.py
+replace_images.py
+replacements.py
+dead_images.txt
