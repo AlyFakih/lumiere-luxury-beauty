@@ -198,10 +198,10 @@ section {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 100%);
     transition: all var(--transition-medium);
     height: 80px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 }
 
 .main-nav.scrolled {
@@ -227,6 +227,7 @@ section {
     color: white;
     letter-spacing: 1px;
     transition: color var(--transition-medium);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .main-nav.scrolled .logo a {
@@ -246,6 +247,7 @@ section {
     padding: 0.5rem 0;
     position: relative;
     color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     transition: color var(--transition-medium);
 }
 
