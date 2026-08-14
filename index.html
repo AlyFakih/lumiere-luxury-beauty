@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière | Luxury Beauty</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" aria-hidden="true"></div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Lumière - Home">Lumière</a>
+            </div>
+            <div class="nav-links" role="menubar">
+                <ul>
+                    <li class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        <a href="pages/category.html" aria-label="Shop - Browse all products">Shop <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                        <div class="dropdown-content" role="menu">
+                            <div class="dropdown-container">
+                                <div class="dropdown-column">
+                                    <h4>Makeup</h4>
+                                    <ul role="group">
+                                        <li role="menuitem"><a href="pages/category.html?category=face">Face</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=eyes">Eyes</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=lips">Lips</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=cheeks">Cheeks</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Skincare</h4>
+                                    <ul role="group">
+                                        <li role="menuitem"><a href="pages/category.html?category=cleansers">Cleansers</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=moisturizers">Moisturizers</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=serums">Serums</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=masks">Masks</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Fragrance</h4>
+                                    <ul role="group">
+                                        <li role="menuitem"><a href="pages/category.html?category=perfume">Perfume</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=cologne">Cologne</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=body-mist">Body Mist</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=gift-sets">Gift Sets</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Tools</h4>
+                                    <ul role="group">
+                                        <li role="menuitem"><a href="pages/category.html?category=brushes">Brushes</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=sponges">Sponges</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=applicators">Applicators</a></li>
+                                        <li role="menuitem"><a href="pages/category.html?category=cases">Cases</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="menuitem"><a href="pages/about.html">About</a></li>
+                    <li role="menuitem"><a href="pages/tutorials.html">Tutorials</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <button class="search-toggle" aria-label="Search products" aria-expanded="false" aria-controls="search-panel"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    <div class="search-panel" id="search-panel" role="search">
+                        <input type="text" placeholder="Search for products..." aria-label="Search input">
+                        <button class="search-btn" aria-label="Perform search"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <a href="pages/account.html" class="account-link" aria-label="Account"><i class="fas fa-user" aria-hidden="true"></i></a>
+                <div class="cart-container">
+                    <button class="cart-toggle" aria-label="Open shopping bag" aria-expanded="false" aria-controls="cart-sidebar">
+                        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                        <span class="cart-count" aria-live="polite">0</span>
+                    </button>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar" role="complementary" aria-label="Shopping bag">
+        <div class="cart-header">
+            <h2>Your Shopping Bag</h2>
+            <button class="close-cart" aria-label="Close shopping bag"><i class="fas fa-times" aria-hidden="true"></i></button>
+        </div>
+        <div class="cart-items" role="region" aria-live="polite" aria-label="Cart items">
+            <!-- Cart items will be dynamically added here -->
+            <div class="empty-cart-message">Your bag is empty</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal" aria-label="Subtotal">
+                <span>Subtotal:</span>
+                <span class="subtotal-amount" aria-live="polite">$0.00</span>
+            </div>
+            <a href="pages/cart.html" class="btn btn-primary">View Cart</a>
+            <a href="pages/checkout.html" class="btn btn-secondary">Checkout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Hero Section">
+        <div class="hero-content">
+            <h1 class="animate-text">Discover Your Luminous Beauty</h1>
+            <p class="animate-text-delay">Luxury skincare and makeup for the modern woman</p>
+            <a href="pages/category.html" class="btn btn-primary animate-text-delay">Shop Now</a>
+        </div>
+        <div class="hero-3d-container" aria-hidden="true">
+            <div class="floating-product product-1">
+                <img src="https://images.unsplash.com/photo-1631730359585-5e3aeb0de988?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Luxury Serum - Premium skincare product">
+                <div class="product-info">
+                    <h4>Radiance Serum</h4>
+                    <p>$89.00</p>
+                </div>
+            </div>
+            <div class="floating-product product-2">
+                <img src="https://images.unsplash.com/photo-1611296841694-d2726e8c1be7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Rose Gold Velvet Lipstick - Long-wearing lip color">
+                <div class="product-info">
+                    <h4>Velvet Lipstick</h4>
+                    <p>$42.00</p>
+                </div>
+            </div>
+            <div class="floating-product product-3">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Luxury Satin Foundation - Full coverage base makeup">
+                <div class="product-info">
+                    <h4>Satin Foundation</h4>
+                    <p>$65.00</p>
+                </div>
+            </div>
+            <div class="floating-product product-4">
+                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Silk Eyeshadow Palette - 12 shades of luxury eye color">
+                <div class="product-info">
+                    <h4>Silk Eyeshadow Palette</h4>
+                    <p>$58.00</p>
+                </div>
+            </div>
+            <div class="floating-product product-5">
+                <img src="https://images.unsplash.com/photo-1579058318694-e5ca0d4def4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Glow Highlighter - Luminous face highlighter">
+                <div class="product-info">
+                    <h4>Glow Highlighter</h4>
+                    <p>$48.00</p>
+                </div>
+            </div>
+            <div class="floating-product product-6">
+                <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Hydrating Face Cream - Intensive moisturizer">
+                <div class="product-info">
+                    <h4>Hydrating Face Cream</h4>
+                    <p>$72.00</p>
+                </div>
+            </div>
+        </div>
+        <div class="shimmer-overlay" aria-hidden="true"></div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" aria-label="Featured Products">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p>Our most sought-after luxury formulations</p>
+        </div>
+        <div class="product-carousel" role="region" aria-label="Featured product carousel">
+            <div class="product-card" role="article">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Illuminating Moisturizer - Luxury face cream for radiant skin">
+                    <div class="product-overlay">
+                        <a href="pages/product.html?id=1" class="btn-quick-view" aria-label="Quick view Illuminating Moisturizer">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h3>Illuminating Moisturizer</h3>
+                    <p class="product-category">Skincare</p>
+                    <p class="product-price" aria-label="Price">$78.00</p>
+                    <button class="add-to-cart-btn" aria-label="Add Illuminating Moisturizer to cart">Add to Bag</button>
+                </div>
+            </div>
+            <div class="product-card" role="article">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1599305090898-5ac8dab39ef8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Volume Luxe Mascara - Premium volumizing mascara">
+                    <div class="product-overlay">
+                        <a href="pages/product.html?id=2" class="btn-quick-view" aria-label="Quick view Volume Luxe Mascara">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h3>Volume Luxe Mascara</h3>
+                    <p class="product-category">Makeup</p>
+                    <p class="product-price" aria-label="Price">$38.00</p>
+                    <button class="add-to-cart-btn" aria-label="Add Volume Luxe Mascara to cart">Add to Bag</button>
+                </div>
+            </div>
+            <div class="product-card" role="article">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1594348566385-514195a39ca3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Rose Oud Parfum - Luxury fragrance with rose and oud notes">
+                    <div class="product-overlay">
+                        <a href="pages/product.html?id=3" class="btn-quick-view" aria-label="Quick view Rose Oud Parfum">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h3>Rose Oud Parfum</h3>
+                    <p class="product-category">Fragrance</p>
+                    <p class="product-price" aria-label="Price">$125.00</p>
+                    <button class="add-to-cart-btn" aria-label="Add Rose Oud Parfum to cart">Add to Bag</button>
+                </div>
+            </div>
+            <div class="product-card" role="article">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1615937722923-67f6deaf2cc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Artistry Brush Set - Professional makeup brush collection">
+                    <div class="product-overlay">
+                        <a href="pages/product.html?id=4" class="btn-quick-view" aria-label="Quick view Artistry Brush Set">Quick View</a>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h3>Artistry Brush Set</h3>
+                    <p class="product-category">Tools</p>
+                    <p class="product-price" aria-label="Price">$145.00</p>
+                    <button class="add-to-cart-btn" aria-label="Add Artistry Brush Set to cart">Add to Bag</button>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls" role="group" aria-label="Carousel navigation">
+            <button class="prev-btn" aria-label="Previous products"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="next-btn" aria-label="Next products"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+    </section>
+
+    <!-- Trending Collections -->
+    <section class="trending-collections">
+        <div class="section-header">
+            <h2>Trending Collections</h2>
+            <p>Curated selections for every beauty need</p>
+        </div>
+        <div class="collections-grid">
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Skincare Collection">
+                <div class="collection-overlay">
+                    <h3>Luminous Skin</h3>
+                    <p>Radiant formulas for glowing complexion</p>
+                    <a href="pages/category.html?collection=luminous-skin" class="btn btn-outline">Shop Collection</a>
+                </div>
+            </div>
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup Collection">
+                <div class="collection-overlay">
+                    <h3>Silk Finish</h3>
+                    <p>Flawless makeup for any occasion</p>
+                    <a href="pages/category.html?collection=silk-finish" class="btn btn-outline">Shop Collection</a>
+                </div>
+            </div>
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1594348566385-514195a39ca3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fragrance Collection">
+                <div class="collection-overlay">
+                    <h3>Signature Scents</h3>
+                    <p>Distinctive fragrances for lasting impressions</p>
+                    <a href="pages/category.html?collection=signature-scents" class="btn btn-outline">Shop Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the Lumière Circle</h2>
+            <p>Subscribe for exclusive offers, beauty tips, and new product announcements</p>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </div>
+                <div class="form-confirmation">
+                    <p>By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.</p>
+                </div>
+            </form>
+        </div>
+        <div class="newsletter-backdrop"></div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer aria-label="Footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">Lumière</div>
+                <p>Luxury beauty products crafted with the finest ingredients for the discerning individual.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Track Order</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="pages/about.html">About Lumière</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lumière Beauty. All rights reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

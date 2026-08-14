@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail | Lumière Luxury Beauty</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Navigation (same as other pages) -->
+    <nav class="main-nav">
+        <!-- Navigation content here (same as index.html) -->
+    </nav>
+
+    <!-- Cart Sidebar (same as other pages) -->
+    <div class="cart-sidebar">
+        <!-- Cart content here (same as index.html) -->
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-wrapper">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="gallery-main">
+                        <div class="main-image-container">
+                            <img src="https://images.unsplash.com/photo-1631730359585-5e3aeb0de988?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Radiance Serum" id="main-product-image">
+                            <div class="image-overlay">
+                                <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
+                                <button class="view-3d-btn"><i class="fas fa-cube"></i> View in 3D</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbnails">
+                        <div class="thumbnail active" data-image="https://images.unsplash.com/photo-1631730359585-5e3aeb0de988?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1631730359585-5e3aeb0de988?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Radiance Serum Front">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1629198735660-e39ea93f5c18?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1629198735660-e39ea93f5c18?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Radiance Serum Angle">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Radiance Serum Ingredients">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1607602132700-cfe5a8cfb7a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1607602132700-cfe5a8cfb7a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Radiance Serum Box">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-breadcrumbs">
+                        <a href="../index.html">Home</a> / <a href="category.html">Shop</a> / <a href="category.html?category=skincare">Skincare</a> / <span>Radiance Serum</span>
+                    </div>
+                    <h1 class="product-title">Radiance Serum</h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="review-count">42 Reviews</span>
+                    </div>
+                    <p class="product-price">$89.00</p>
+                    <div class="product-description">
+                        <p>This luxurious facial serum is formulated with advanced brightening complex, vitamin C, and hyaluronic acid to reveal radiant, glowing skin. The lightweight formula absorbs quickly, delivering potent actives deep into the skin for transformative results.</p>
+                    </div>
+                    <div class="product-benefits">
+                        <h3>Key Benefits</h3>
+                        <ul>
+                            <li>Brightens and evens skin tone</li>
+                            <li>Reduces appearance of dark spots</li>
+                            <li>Hydrates and plumps skin</li>
+                            <li>Protects against environmental damage</li>
+                        </ul>
+                    </div>
+                    <div class="product-size">
+                        <h3>Size</h3>
+                        <div class="size-options">
+                            <button class="size-option active">30ml</button>
+                            <button class="size-option">50ml <span class="size-price">+$30</span></button>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                            <input type="number" value="1" min="1" max="10" id="quantity">
+                            <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <button class="btn btn-primary add-to-cart">Add to Bag</button>
+                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-meta">
+                        <p><span>SKU:</span> LS-RS-001</p>
+                        <p><span>Category:</span> <a href="category.html?category=skincare">Skincare</a>, <a href="category.html?category=serums">Serums</a></p>
+                        <p><span>Collections:</span> <a href="category.html?collection=luminous-skin">Luminous Skin</a>, <a href="category.html?collection=bestsellers">Bestsellers</a></p>
+                    </div>
+                    <div class="product-extras">
+                        <div class="product-extra">
+                            <i class="fas fa-truck"></i>
+                            <p>Free shipping on orders over $75</p>
+                        </div>
+                        <div class="product-extra">
+                            <i class="fas fa-undo"></i>
+                            <p>30-day free returns</p>
+                        </div>
+                        <div class="product-extra">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Authenticity guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Information Tabs -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="details">Details</button>
+                <button class="tab-btn" data-tab="ingredients">Ingredients</button>
+                <button class="tab-btn" data-tab="how-to-use">How to Use</button>
+                <button class="tab-btn" data-tab="reviews">Reviews</button>
+            </div>
+            <div class="tabs-content">
+                <div class="tab-panel active" id="details">
+                    <div class="tab-content">
+                        <h3>Product Details</h3>
+                        <p>Our Radiance Serum is a powerful brightening treatment designed to transform dull, uneven skin. This advanced formula combines potent actives with skin-loving ingredients to deliver visible results without irritation.</p>
+                        <p>The lightweight, silky texture absorbs quickly, making it perfect for layering in your skincare routine. With regular use, skin appears more luminous, even-toned, and youthful.</p>
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Proprietary brightening complex targets hyperpigmentation</li>
+                            <li>15% Vitamin C complex for antioxidant protection</li>
+                            <li>Multi-weight hyaluronic acid provides deep hydration</li>
+                            <li>Niacinamide strengthens skin barrier</li>
+                            <li>Free from parabens, sulfates, and phthalates</li>
+                            <li>Dermatologist tested and approved</li>
+                            <li>Not tested on animals</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-panel" id="ingredients">
+                    <div class="tab-content">
+                        <h3>Full Ingredient List</h3>
+                        <p class="ingredient-list">Aqua/Water/Eau, Ascorbic Acid, Glycerin, Propanediol, Niacinamide, Sodium Hyaluronate, Butylene Glycol, Dimethicone, Polysilicone-11, Licorice Root Extract, Alpha-Arbutin, Tocopherol, Ferulic Acid, Panthenol, Citrus Aurantium Dulcis (Orange) Peel Oil, Citrus Limon (Lemon) Peel Oil, Rose Extract, Phenoxyethanol, Ethylhexylglycerin, Sodium Hydroxide, Xanthan Gum, Disodium EDTA.</p>
+                        <div class="ingredient-highlights">
+                            <div class="ingredient">
+                                <h4>Vitamin C (Ascorbic Acid)</h4>
+                                <p>A powerful antioxidant that brightens skin, protects against environmental damage, and boosts collagen production.</p>
+                            </div>
+                            <div class="ingredient">
+                                <h4>Niacinamide</h4>
+                                <p>Improves skin texture, minimizes pore appearance, and strengthens the skin barrier while reducing discoloration.</p>
+                            </div>
+                            <div class="ingredient">
+                                <h4>Hyaluronic Acid</h4>
+                                <p>Attracts and retains moisture, plumping the skin and reducing the appearance of fine lines.</p>
+                            </div>
+                            <div class="ingredient">
+                                <h4>Licorice Root Extract</h4>
+                                <p>Natural brightening agent that helps reduce the appearance of dark spots and discoloration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="how-to-use">
+                    <div class="tab-content">
+                        <h3>Application Instructions</h3>
+                        <div class="usage-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Cleanse</h4>
+                                    <p>Start with clean, dry skin. Apply your favorite gentle cleanser and pat dry.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Apply</h4>
+                                    <p>Dispense 3-4 drops onto fingertips and gently press into face and neck. Avoid direct contact with eyes.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Follow with Moisturizer</h4>
+                                    <p>Allow serum to fully absorb (30-60 seconds), then follow with your favorite moisturizer.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Sun Protection</h4>
+                                    <p>Always apply sunscreen in the morning after using this product, as vitamin C can increase sun sensitivity.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="usage-note">
+                            <p><strong>Recommended Use:</strong> Apply morning and evening for best results. If used in the morning, always follow with SPF protection.</p>
+                            <p><strong>Tip:</strong> Store in a cool, dark place to maintain potency of active ingredients.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-panel" id="reviews">
+                    <div class="tab-content">
+                        <div class="reviews-header">
+                            <h3>Customer Reviews</h3>
+                            <div class="reviews-summary">
+                                <div class="average-rating">
+                                    <span class="rating-number">4.5</span>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="review-count">Based on 42 reviews</span>
+                                </div>
+                                <button class="btn btn-secondary write-review-btn">Write a Review</button>
+                            </div>
+                        </div>
+                        <div class="review-list">
+                            <!-- Review items here -->
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <h4>Sophie L.</h4>
+                                        <span class="verified-badge">Verified Purchase</span>
+                                    </div>
+                                    <div class="review-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="review-date">2 months ago</span>
+                                    </div>
+                                </div>
+                                <h5 class="review-title">Game changer for my hyperpigmentation</h5>
+                                <p class="review-text">I've tried countless products to address my post-acne marks, and this is by far the most effective. After just 3 weeks of consistent use, my dark spots have visibly faded and my skin tone looks more even. The texture is beautiful - absorbs quickly without any stickiness. Will definitely repurchase!</p>
+                            </div>
+                            <!-- More reviews would be added here -->
+                        </div>
+                        <div class="pagination">
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-carousel">
+                <!-- Related product cards here, similar to homepage -->
+            </div>
+            <div class="carousel-controls">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer>
+        <!-- Footer content here (same as index.html) -->
+    </footer>
+
+    <!-- 3D Viewer Modal -->
+    <div class="modal-3d-viewer">
+        <div class="modal-content">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="viewer-container">
+                <div class="product-3d-model">
+                    <!-- 3D model will be loaded here via JavaScript -->
+                    <div class="placeholder-3d">
+                        <img src="https://images.unsplash.com/photo-1631730359585-5e3aeb0de988?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Radiance Serum 3D View">
+                        <div class="rotate-instruction">
+                            <i class="fas fa-sync-alt"></i>
+                            <p>Drag to rotate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="viewer-controls">
+                    <button class="view-btn" data-view="front">Front</button>
+                    <button class="view-btn" data-view="side">Side</button>
+                    <button class="view-btn" data-view="back">Back</button>
+                    <button class="view-btn" data-view="top">Top</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zoom Modal -->
+    <div class="modal-zoom">
+        <button class="close-modal"><i class="fas fa-times"></i></button>
+        <div class="zoom-container">
+            <img src="" alt="Zoomed product image" id="zoomed-image">
+        </div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/product.js"></script>
+</body>
+</html>

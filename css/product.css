@@ -1,0 +1,463 @@
+/* Product Detail Page Styles for Lumière Luxury Beauty */
+
+/* Product Detail Layout */
+.product-detail {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.product-detail-wrapper {
+    display: flex;
+    gap: 4rem;
+}
+
+/* Product Gallery */
+.product-gallery {
+    flex: 0 0 50%;
+}
+
+.gallery-main {
+    margin-bottom: 1.5rem;
+}
+
+.main-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+}
+
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.zoom-btn, .view-3d-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.view-3d-btn {
+    border-radius: 25px;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.zoom-btn:hover, .view-3d-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 1rem;
+}
+
+.thumbnail {
+    flex: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.thumbnail:hover, .thumbnail.active {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Product Info */
+.product-info {
+    flex: 0 0 50%;
+}
+
+.product-breadcrumbs {
+    font-size: 0.9rem;
+    color: var(--color-grey);
+    margin-bottom: 1rem;
+}
+
+.product-breadcrumbs a {
+    color: var(--color-grey);
+}
+
+.product-breadcrumbs a:hover {
+    color: var(--color-primary);
+}
+
+.product-title {
+    margin-bottom: 1rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stars {
+    color: #FFD700;
+}
+
+.review-count {
+    color: var(--color-grey);
+    font-size: 0.9rem;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.product-description {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.product-benefits {
+    margin-bottom: 2rem;
+}
+
+.product-benefits h3, .product-size h3 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.product-benefits ul {
+    padding-left: 1.5rem;
+}
+
+.product-benefits ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    list-style-type: none;
+}
+
+.product-benefits ul li::before {
+    content: '✓';
+    color: var(--color-primary);
+    position: absolute;
+    left: -1.5rem;
+}
+
+.product-size {
+    margin-bottom: 2rem;
+}
+
+.size-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.size-option {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.size-option.active, .size-option:hover {
+    border-color: var(--color-primary);
+}
+
+.size-option.active::after {
+    content: '✓';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.size-price {
+    font-size: 0.8rem;
+    color: var(--color-grey);
+    margin-left: 0.5rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #f8f8f8;
+}
+
+.quantity-selector input {
+    width: 40px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font-family: var(--font-sans);
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.quantity-selector input::-webkit-outer-spin-button,
+.quantity-selector input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.add-to-cart {
+    flex: 1;
+}
+
+.btn-wishlist {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-wishlist:hover {
+    border-color: #e75480;
+    color: #e75480;
+}
+
+.product-meta {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.product-meta p {
+    margin-bottom: 0.5rem;
+}
+
+.product-meta span {
+    font-weight: 500;
+    color: var(--color-dark);
+    margin-right: 0.5rem;
+}
+
+.product-extras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.product-extra {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-extra i {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+.product-extra p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Product Tabs */
+.product-tabs {
+    padding: 4rem 0;
+    background: #f9f9f9;
+}
+
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-grey);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--color-primary);
+}
+
+.tab-btn.active {
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tab-content h3 {
+    margin-bottom: 1.5rem;
+}
+
+.tab-content p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content ul li {
+    margin-bottom: 0.8rem;
+}
+
+/* Ingredients Tab */
+.ingredient-list {
+    font-size: 0.9rem;
+    color: var(--color-grey);
+    line-height: 1.8;
+}
+
+.ingredient-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.ingredient h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+/* How to Use Tab */
+.usage-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
