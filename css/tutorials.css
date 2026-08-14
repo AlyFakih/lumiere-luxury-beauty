@@ -878,6 +878,13 @@
     position: relative;
 }
 
+/* Gated behind .is-revealed, which tutorials.js adds on intersection.
+   These keyframes belong to the ::after curtain and to nothing else --
+   `reveal` ends at translateX(100%), which moves the CURTAIN off to the
+   right. tutorials.js previously assigned it to the host heading inline,
+   sliding each heading a full width off-screen and pinning it there with
+   `forwards`. That affected all four headings on this page including the
+   hero h1. Matches the fix already applied in about.css. */
 .reveal-text::after {
     content: '';
     position: absolute;
@@ -887,6 +894,9 @@
     height: 100%;
     background-color: var(--color-primary);
     transform: translateX(-100%);
+}
+
+.reveal-text.is-revealed::after {
     animation: reveal 1.5s ease forwards;
 }
 

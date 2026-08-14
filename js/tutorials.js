@@ -30,13 +30,12 @@ function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains('fade-in')) {
-                    entry.target.style.animation = 'fadeIn 1s ease forwards';
-                } else if (entry.target.classList.contains('reveal-text')) {
-                    entry.target.style.animation = 'none';
-                    void entry.target.offsetWidth; // Trigger reflow
-                    entry.target.style.animation = 'reveal 1.5s ease forwards';
-                }
+                // Add the trigger class and let the stylesheet own the
+                // animation. This previously assigned `reveal` -- the
+                // ::after curtain keyframes, which end at translateX(100%)
+                // -- to the host heading, sliding all four headings on this
+                // page off-screen permanently. Same fault as about.js.
+                entry.target.classList.add('is-revealed');
                 observer.unobserve(entry.target);
             }
         });
