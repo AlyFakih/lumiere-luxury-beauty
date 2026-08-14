@@ -604,17 +604,19 @@ img[data-src].loaded {
 }
 
 /* ============================================================================
-   DARK MODE (if supported)
+   DARK MODE
+   ============================================================================
+
+   Intentionally not implemented.
+
+   A previous @media (prefers-color-scheme: dark) block here swapped
+   --color-dark and --color-light globally while every other rule kept its
+   hardcoded light-mode value. On a dark-mode OS that produced unreadable
+   text wherever the two were combined -- most visibly `.main-nav.scrolled`,
+   which keeps `background: white` while its links became #f9f7f5, a
+   contrast ratio of 1.07:1 against a 4.5:1 requirement.
+
+   A correct dark mode needs every surface, border and shadow to be
+   tokenised, not just the two text colours. Until that work is scoped,
+   shipping no dark mode is more accessible than shipping a broken one.
    ============================================================================ */
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-dark: #f9f7f5;
-        --color-light: #1a1a1a;
-    }
-
-    body {
-        background-color: var(--color-light);
-        color: var(--color-dark);
-    }
-}
