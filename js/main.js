@@ -568,7 +568,6 @@ function initializeFormValidation() {
         });
     });
 }
-}
 
 // Page transitions
 function initPageTransitions() {
