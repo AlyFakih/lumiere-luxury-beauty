@@ -86,7 +86,7 @@ function initializeCustomCursor() {
             if (customCursor) {
                 customCursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
                 customCursor.style.border = '1px solid var(--color-primary)';
-                customCursor.style.backgroundColor = 'rgba(212, 175, 55, 0.1)';
+                customCursor.style.backgroundColor = 'rgba(139, 105, 20, 0.1)';
             }
         });
         

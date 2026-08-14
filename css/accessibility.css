@@ -6,12 +6,17 @@
    ACCESSIBILITY STYLES
    ============================================================================ */
 
-/* Focus Visible Styles - Better keyboard navigation indicators */
-:focus-visible {
-    outline: 3px solid var(--color-primary);
-    outline-offset: 2px;
-}
+/* Focus Visible Styles - Better keyboard navigation indicators.
 
+   --color-primary is now #8B6914, which measures 5.09:1 on white and
+   4.83:1 on --color-background, clearing the 3:1 that SC 1.4.11 requires
+   of a focus indicator. The previous #d4af37 measured 2.10:1 and was
+   effectively invisible on every light surface on the site.
+
+   The white companion ring keeps the indicator legible where focus lands
+   on a dark or photographic ground (nav over hero, collection overlays,
+   the footer), which a single gold ring cannot guarantee. */
+:focus-visible,
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
@@ -19,6 +24,17 @@ select:focus-visible,
 textarea:focus-visible {
     outline: 3px solid var(--color-primary);
     outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.9);
+}
+
+/* Dark grounds: flip to the light gold, which is 6.24:1 on charcoal
+   where the dark gold is only 2.75:1. */
+footer :focus-visible,
+.collection-overlay :focus-visible,
+.join-us-section :focus-visible,
+.newsletter :focus-visible {
+    outline-color: var(--color-primary-light);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Skip to main content link */

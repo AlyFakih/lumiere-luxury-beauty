@@ -240,15 +240,15 @@ function addPulseAnimationCSS() {
         @keyframes pulse {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+                box-shadow: 0 0 0 0 rgba(139, 105, 20, 0.5);
             }
             70% {
                 transform: scale(1.05);
-                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+                box-shadow: 0 0 0 10px rgba(139, 105, 20, 0);
             }
             100% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+                box-shadow: 0 0 0 0 rgba(139, 105, 20, 0);
             }
         }
         
