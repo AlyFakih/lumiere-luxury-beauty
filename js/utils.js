@@ -255,7 +255,7 @@ function throttle(func, limit) {
  * Initialize lazy loading for images
  */
 function initLazyLoading() {
-    if ('IntersectionObserver' not in window) {
+    if (!('IntersectionObserver' in window)) {
         // Fallback for browsers that don't support IntersectionObserver
         const images = document.querySelectorAll('img[data-src]');
         images.forEach(img => {
