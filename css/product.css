@@ -461,3 +461,478 @@
     color: white;
     border-radius: 50%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+.step-content h4 {
+    margin-bottom: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+.usage-note {
+    padding: 1.5rem;
+    background: white;
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 6px 6px 0;
+}
+
+.usage-note p {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.usage-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* Reviews Tab */
+.reviews-header {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.reviews-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.average-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.rating-number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--color-dark);
+}
+
+.write-review-btn {
+    flex-shrink: 0;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.review-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 6px;
+    box-shadow: var(--shadow-soft);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.reviewer-info h4 {
+    margin-bottom: 0.3rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.verified-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: #8a6d1f;
+    color: white;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.review-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
+.review-date {
+    font-size: 0.85rem;
+    color: var(--color-grey);
+}
+
+.review-title {
+    margin-bottom: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.review-text {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Review Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+}
+
+/* Colour Selector */
+.color-selector {
+    margin-bottom: 2rem;
+}
+
+.color-selector h3 {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.color-options {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 0 0 transparent;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.color-option:hover {
+    transform: translateY(-2px);
+}
+
+.color-option.active {
+    box-shadow: 0 0 0 2px white inset, 0 0 0 2px var(--color-dark);
+}
+
+.color-name {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: var(--color-grey);
+}
+
+.color-option.active .color-name {
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+/* Tabs Content Wrapper */
+.tabs-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Related Products */
+.related-products {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* 3D Viewer & Zoom Modals */
+.modal-3d-viewer,
+.modal-zoom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-3d-viewer.active,
+.modal-zoom.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-3d-viewer .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem 2rem 2rem;
+}
+
+.modal-3d-viewer .close-modal,
+.modal-zoom .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.modal-zoom .close-modal {
+    color: white;
+}
+
+.viewer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.product-3d-model {
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    cursor: grab;
+}
+
+.product-3d-model:active {
+    cursor: grabbing;
+}
+
+.placeholder-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.placeholder-3d img {
+    max-height: 320px;
+    width: auto;
+    border-radius: 6px;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.rotate-instruction {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.rotate-instruction p {
+    margin-bottom: 0;
+}
+
+.viewer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.view-btn {
+    padding: 0.6rem 1.4rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    border-color: var(--color-dark);
+}
+
+.view-btn.active {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+}
+
+.zoom-container {
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.zoom-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .product-detail-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .product-gallery,
+    .product-info {
+        flex: 0 0 100%;
+    }
+
+    .ingredient-highlights {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail {
+        padding-top: 100px;
+    }
+
+    .tabs-header {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-btn {
+        padding: 1rem 1.2rem;
+        white-space: nowrap;
+    }
+
+    .product-actions {
+        flex-wrap: wrap;
+    }
+
+    .add-to-cart {
+        flex: 1 0 100%;
+        order: 3;
+    }
+
+    .reviews-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .review-header {
+        flex-direction: column;
+    }
+
+    .review-rating {
+        align-items: flex-start;
+    }
+
+    .modal-3d-viewer .modal-content {
+        padding: 3rem 1.5rem 1.5rem;
+    }
+
+    .product-3d-model {
+        min-height: 240px;
+    }
+
+    .placeholder-3d img {
+        max-height: 240px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-thumbnails {
+        gap: 0.5rem;
+    }
+
+    .thumbnail img {
+        height: 70px;
+    }
+
+    .size-options,
+    .color-options {
+        flex-wrap: wrap;
+    }
+
+    .product-extras {
+        gap: 1rem;
+    }
+
+    .viewer-controls {
+        gap: 0.5rem;
+    }
+
+    .view-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
