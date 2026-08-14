@@ -25,18 +25,14 @@ function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains('fade-in')) {
-                    entry.target.style.animation = 'fadeIn 1s ease forwards';
-                } else if (entry.target.classList.contains('reveal-text')) {
-                    entry.target.style.animation = 'none';
-                    void entry.target.offsetWidth; // Trigger reflow
-                    entry.target.style.animation = 'reveal 1.5s ease forwards';
-                } else if (entry.target.classList.contains('reveal-image')) {
-                    entry.target.style.animation = 'none';
-                    void entry.target.offsetWidth; // Trigger reflow
-                    entry.target.querySelector('img') && (entry.target.querySelector('img').style.opacity = '1');
-                    entry.target.style.animation = 'revealImage 1.5s ease forwards';
-                }
+                // Add the trigger class and let the stylesheet own the
+                // animation. These previously assigned the curtain
+                // keyframes to the host element inline: `reveal` ends at
+                // translateX(100%) and `revealImage` at scaleX(0), both
+                // meant for the ::after / ::before curtain, so the host
+                // heading slid off-screen and the story image collapsed to
+                // zero width -- permanently, because of `forwards`.
+                entry.target.classList.add('is-revealed');
                 observer.unobserve(entry.target);
             }
         });

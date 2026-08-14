@@ -407,19 +407,20 @@
     background-color: #fcfcfc;
 }
 
+/* Slides are stacked in a single grid cell rather than absolutely
+   positioned, so the track takes the height of its tallest slide. The
+   previous fixed 300px was taller than any of the quotes, which left a
+   band of dead space above and below the text that read as a missing
+   image. Height is now intrinsic and the gap is gone. */
 .testimonials-slider {
-    position: relative;
-    max-width: 900px;
+    display: grid;
+    max-width: 860px;
     margin: 0 auto;
-    height: 300px;
 }
 
 .testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
+    grid-area: 1 / 1;
     width: 100%;
-    height: 100%;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -461,29 +462,48 @@
     right: 0;
 }
 
+/* Editorial pull-quote: large italic serif carrying the section on its
+   own, which is how this pattern is handled without a portrait. Tight
+   line-height because the type is large. */
 .testimonial-quote p {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    margin: 1.5rem 0;
-    color: var(--color-dark);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.35;
+    margin: var(--space-md) 0;
+    color: var(--color-text);
     font-family: var(--font-serif);
     font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .testimonial-author {
-    margin-top: 2rem;
+    margin-top: var(--space-md);
+}
+
+/* Small tracked caps under the rule read as an attribution line rather
+   than as body copy, which is what keeps the quote the focal point. */
+.testimonial-author::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    margin: 0 auto var(--space-sm);
+    background-color: var(--color-primary);
 }
 
 .author-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: var(--color-dark);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
 }
 
 .author-title {
-    font-size: 0.9rem;
-    color: var(--color-grey);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
 }
 
 .testimonial-controls {
@@ -613,6 +633,17 @@
     position: relative;
 }
 
+/* The curtain keyframes below belong to these pseudo-elements and to
+   nothing else. They are gated behind .is-revealed, which about.js adds
+   on intersection, so the wipe plays on scroll rather than on load.
+
+   Previously about.js assigned `animation: reveal ...` and
+   `animation: revealImage ...` directly to the host element via inline
+   style. Both keyframe sets end in a transform intended to move the
+   CURTAIN out of the way -- translateX(100%) and scaleX(0) -- so applying
+   them to the host slid each heading a full width off to the right and
+   collapsed the story image to zero width, with `forwards` pinning both
+   there permanently. */
 .reveal-text::after {
     content: '';
     position: absolute;
@@ -622,6 +653,9 @@
     height: 100%;
     background-color: var(--color-primary);
     transform: translateX(-100%);
+}
+
+.reveal-text.is-revealed::after {
     animation: reveal 1.5s ease forwards;
 }
 
@@ -663,6 +697,11 @@
     overflow: hidden;
 }
 
+/* Default is scaleX(0) -- curtain retracted, image visible. If the
+   observer never fires (JS error, script blocked), the image is simply
+   shown rather than left permanently hidden behind a gold panel. The
+   keyframes re-establish the covering state at 0%, so the wipe still
+   reads correctly whenever it does play. */
 .reveal-image::before {
     content: '';
     position: absolute;
@@ -672,8 +711,11 @@
     height: 100%;
     background-color: var(--color-primary);
     z-index: 3;
-    transform: scaleX(1);
-    transform-origin: right;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.reveal-image.is-revealed::before {
     animation: revealImage 1.5s ease forwards;
 }
 
@@ -758,9 +800,8 @@
         grid-template-columns: 1fr;
     }
 
-    .testimonial-quote p {
-        font-size: 1.1rem;
-    }
+    /* .testimonial-quote p is sized by clamp() and needs no override here;
+       a fixed value would defeat the fluid scale. */
 
     .join-us-buttons {
         flex-direction: column;
@@ -789,7 +830,7 @@
         padding: 1rem;
     }
 
-    .testimonial-quote p {
-        font-size: 1rem;
+    .testimonial-quote {
+        padding: 0 1rem;
     }
 }
