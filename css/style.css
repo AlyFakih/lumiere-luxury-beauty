@@ -281,14 +281,17 @@ section {
     position: relative;
 }
 
+/* Full-bleed megamenu. Anchored to the viewport edges rather than centred
+   on the trigger, so the four columns can never overflow the right edge at
+   any width. Inner content is re-centred by .dropdown-container. */
 .dropdown-content {
     position: fixed;
     top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(900px, calc(100vw - 4rem));
+    left: 0;
+    width: 100%;
+    transform: none;
     background: white;
-    padding: 2rem;
+    padding: 2rem 4rem;
     box-shadow: var(--shadow-medium);
     opacity: 0;
     visibility: hidden;
@@ -296,7 +299,18 @@ section {
     z-index: 100;
 }
 
-.dropdown:hover .dropdown-content {
+/* The nav shrinks 80px -> 70px once scrolled. Without this the panel stays
+   pinned at 80px, leaving a 10px dead gap that drops :hover and snaps the
+   menu shut as the pointer travels into it. */
+.main-nav.scrolled .dropdown-content {
+    top: 70px;
+}
+
+/* .active is set by initializeDropdownMenus() in main.js on click and by
+   keyboard activation. Without it the menu is hover-only and unreachable
+   for keyboard users, even though aria-expanded reports it as open. */
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
     opacity: 1;
     visibility: visible;
 }
@@ -304,6 +318,8 @@ section {
 .dropdown-container {
     display: flex;
     justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .dropdown-column {
