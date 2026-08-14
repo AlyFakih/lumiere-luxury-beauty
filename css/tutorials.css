@@ -49,7 +49,8 @@
     overflow: hidden;
 }
 
-.hero-video video {
+.hero-video video,
+.hero-video img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1033,4 +1034,42 @@
     .instagram-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* Video modal poster-image placeholder (replaces external video iframe) */
+.video-placeholder {
+    position: relative;
+    overflow: hidden;
+}
+.video-placeholder .modal-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.video-placeholder-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: rgba(0, 0, 0, 0.55);
+    color: #faf9f7;
+    text-align: center;
+    padding: 1.5rem;
+}
+.video-placeholder-overlay i {
+    font-size: 2.5rem;
+}
+.video-placeholder-overlay .modal-video-caption {
+    font-size: 1.1rem;
+    margin: 0;
+}
+.video-placeholder-overlay .video-placeholder-note {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.75;
 }

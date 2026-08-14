@@ -1,7 +1,7 @@
 # 📚 Component Library Guide
 
 **Lumière Luxury Beauty - Component Library**  
-Version 1.0
+Version 1.1
 
 ---
 

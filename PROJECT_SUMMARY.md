@@ -120,7 +120,7 @@
 - Instagram-style gallery
 
 #### 5. **Accessibility Features**
-- ✅ WCAG 2.1 Level AA compliance
+- ✅ WCAG 2.1 AA implementation baseline; WCAG 2.2 AA target
 - ✅ Color contrast 4.5:1+ on all text
 - ✅ Keyboard navigation (Tab, Shift+Tab, Enter, Space, Escape, Arrows)
 - ✅ ARIA labels & descriptions
@@ -663,3 +663,5 @@ This project is **well-documented, structured, and ready for any developer** to 
 ---
 
 *This document should be shared with any new developer joining the project.*
+
+> **Accessibility note:** Documentation describes the intended implementation baseline. It does not by itself establish WCAG conformance. The final site should be validated with automated and manual accessibility testing.

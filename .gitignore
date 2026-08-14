@@ -5,3 +5,5 @@ replace_images.py
 replacements.py
 dead_images.txt
 all_unsplash_urls.txt
+
+node_modules/

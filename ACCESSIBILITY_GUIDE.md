@@ -1,7 +1,7 @@
 # ♿ Accessibility Guide
 
 **Lumière Luxury Beauty - Web Accessibility & WCAG Compliance**  
-Version 1.0 | WCAG 2.1 Level AA
+Version 1.1 | WCAG 2.1 AA baseline / WCAG 2.2 AA target
 
 ---
 
@@ -29,7 +29,9 @@ Version 1.0 | WCAG 2.1 Level AA
 
 ### Our Commitment
 
-- ✓ WCAG 2.1 Level AA compliance
+- ✓ WCAG 2.1 AA is the current implementation baseline
+- ✓ WCAG 2.2 AA is the recommended target for new improvements
+- ⚠️ Formal conformance requires automated and manual testing
 - ✓ Screen reader optimization
 - ✓ Keyboard navigation support
 - ✓ Color contrast compliance
@@ -44,8 +46,10 @@ Version 1.0 | WCAG 2.1 Level AA
 ### Level A (Basic)
 We exceed Level A in all areas.
 
-### Level AA (Our Standard)
-**All components comply with Level AA standards:**
+### Level AA (Implementation Target)
+**Components should be implemented and tested against WCAG Level AA.**
+
+> Documentation alone does not establish WCAG conformance. The final site must be validated with automated and manual testing.
 
 #### 1.4 Distinguishable (Color & Contrast)
 
@@ -61,16 +65,19 @@ Focus indicators: 3:1 minimum
 ```css
 /* ✓ Sufficient contrast */
 body {
-    color: #1a1a1a;           /* Dark */
-    background-color: #f9f7f5; /* Cream */
-    /* Contrast ratio: 14:1 ✓ */
+    color: #1a1a1a;
+    background-color: #f9f7f5;
 }
 
-/* ✓ Button contrast */
+/* Verify actual contrast before release.
+   Do not rely on comments claiming a fixed ratio. */
+
+/* Primary button:
+   Verify the actual foreground/background contrast
+   before release. */
 .btn-primary {
-    background-color: #d4af37;  /* Gold */
+    background-color: #d4af37;
     color: white;
-    /* Contrast ratio: 7:1 ✓ */
 }
 
 /* ✓ Error message contrast */
@@ -309,7 +316,7 @@ inputField.addEventListener('blur', () => {
 </button>
 
 <!-- Required fields -->
-<input type="email" required aria-required="true">
+<input type="email" required>
 
 <!-- Invalid state -->
 <input type="email" aria-invalid="false">
@@ -669,4 +676,4 @@ class FocusTrap {
 **Questions? Contact our accessibility team or email accessibility@lumiere-beauty.com**
 
 Last Updated: 2025  
-Next Review: 2026
+Next Review: 2027

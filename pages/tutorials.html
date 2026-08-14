@@ -106,10 +106,13 @@
                 <p class="fade-in">Expert tutorials and techniques for effortless luxury beauty</p>
             </div>
         </div>
+        <!-- Was a <video> sourced from assets.mixkit.co. That URL is dead and
+             the request failed on every load; it was also the last remaining
+             external media dependency in the project. Replaced with a local
+             still so the hero renders offline and matches the localized
+             image policy. -->
         <div class="hero-video">
-            <video autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-makeup-artist-applies-makeup-on-models-face-48271-large.mp4" type="video/mp4">
-            </video>
+            <img src="../images/radiant-skin-tutorial.jpg" alt="" aria-hidden="true">
             <div class="video-overlay"></div>
         </div>
     </section>
@@ -500,8 +503,13 @@
     <div class="video-modal">
         <div class="modal-content">
             <button class="close-modal"><i class="fas fa-times"></i></button>
-            <div class="video-container">
-                <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-container video-placeholder">
+                <img class="modal-poster-img" src="" alt="Tutorial preview">
+                <div class="video-placeholder-overlay">
+                    <i class="fas fa-play-circle"></i>
+                    <p class="modal-video-caption"></p>
+                    <span class="video-placeholder-note">Full video coming soon</span>
+                </div>
             </div>
         </div>
     </div>

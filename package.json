@@ -1,0 +1,15 @@
+{
+  "name": "luxurybeauty",
+  "version": "1.0.0",
+  "description": "**A premium, accessible, and performance-optimized luxury beauty e-commerce frontend UI/UX project.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

@@ -69,35 +69,32 @@ function initAnimations() {
 // Handle video modals
 function initVideoModals() {
     const videoModal = document.querySelector('.video-modal');
-    const modalIframe = videoModal.querySelector('iframe');
+    const modalPosterImg = videoModal.querySelector('.modal-poster-img');
+    const modalCaption = videoModal.querySelector('.modal-video-caption');
     const closeModalBtn = videoModal.querySelector('.close-modal');
     const videoTriggers = document.querySelectorAll('.video-thumbnail, .play-icon, .tutorial-thumbnail');
 
-    // Sample video URLs (would be replaced with actual video URLs in production)
-    const videoUrls = {
-        featured: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', // Replace with actual featured video
-        tutorial1: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1', // Replace with actual tutorial videos
-        tutorial2: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-        tutorial3: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1'
-    };
-
-    // Open modal with featured video
+    // Open modal with the clicked tutorial's own poster image (self-contained, no external video)
     videoTriggers.forEach(trigger => {
         trigger.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Determine which video to play
-            let videoUrl = videoUrls.featured; // Default to featured
-            
-            // If triggered from a tutorial card, get the appropriate video
+
+            let posterSrc = '';
+            let posterAlt = 'Tutorial preview';
+
             const tutorialCard = this.closest('.tutorial-card');
             if (tutorialCard) {
-                const index = Array.from(document.querySelectorAll('.tutorial-card')).indexOf(tutorialCard);
-                videoUrl = videoUrls[`tutorial${index + 1}`] || videoUrls.featured;
+                const posterImg = tutorialCard.querySelector('.tutorial-thumbnail img');
+                if (posterImg) {
+                    posterSrc = posterImg.getAttribute('src');
+                    posterAlt = posterImg.getAttribute('alt') || posterAlt;
+                }
             }
-            
-            // Set iframe src and open modal
-            modalIframe.setAttribute('src', videoUrl);
+
+            modalPosterImg.setAttribute('src', posterSrc);
+            modalPosterImg.setAttribute('alt', posterAlt);
+            modalCaption.textContent = posterAlt;
+
             videoModal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent scrolling
         });
@@ -106,7 +103,7 @@ function initVideoModals() {
     // Close modal
     closeModalBtn.addEventListener('click', function() {
         videoModal.classList.remove('active');
-        modalIframe.setAttribute('src', ''); // Stop the video
+        modalPosterImg.setAttribute('src', '');
         document.body.style.overflow = ''; // Restore scrolling
     });
 
@@ -114,12 +111,11 @@ function initVideoModals() {
     videoModal.addEventListener('click', function(e) {
         if (e.target === videoModal) {
             videoModal.classList.remove('active');
-            modalIframe.setAttribute('src', '');
+            modalPosterImg.setAttribute('src', '');
             document.body.style.overflow = '';
         }
     });
 }
-
 // Handle category navigation
 function initCategoryNavigation() {
     const categoryCards = document.querySelectorAll('.category-card');

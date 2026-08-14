@@ -1,7 +1,7 @@
 # 🎨 Lumière Design System
 
-**Version:** 1.0  
-**Last Updated:** 2025  
+**Version:** 1.1  
+**Last Updated:** 2026  
 **Status:** Published
 
 ---
@@ -25,7 +25,7 @@ Lumière is a luxury beauty e-commerce platform with a focus on elegance, sophis
 
 ### Key Features
 - **Luxury Aesthetic**: Gold accents, cream backgrounds, and sophisticated typography
-- **Inclusive Design**: WCAG 2.1 AA compliant
+- **Inclusive Design**: WCAG 2.1 AA implementation baseline; WCAG 2.2 AA target
 - **Performance-Optimized**: Fast load times with optimized assets
 - **Responsive**: Mobile-first approach with tablet and desktop support
 
@@ -56,7 +56,7 @@ Use design tokens and components to maintain consistency across the product.
 
 | Color | Hex | Usage | Accessibility |
 |-------|-----|-------|---|
-| **Gold** | `#d4af37` | Primary CTA, highlights, accents | Contrast: 4.5:1 ✓ |
+| **Gold** | `#d4af37` | Primary CTA, highlights, accents | Verify contrast against the actual background before release |
 | **Dark** | `#1a1a1a` | Text, primary content | Contrast: 21:1 ✓ |
 | **Cream** | `#f9f7f5` | Background, neutral spaces | Contrast: 1:1 |
 
@@ -296,7 +296,7 @@ Based on 8px base unit:
 ```html
 <div id="toast-container" role="status" aria-live="polite" aria-atomic="true">
     <div class="toast toast-success" role="alert">
-        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
         <span>Action completed successfully</span>
     </div>
 </div>
@@ -305,6 +305,8 @@ Based on 8px base unit:
 ---
 
 ## Accessibility
+
+> Documentation alone does not establish WCAG conformance. The final implementation must be validated with automated and manual accessibility testing.
 
 ### WCAG 2.1 AA Compliance
 
@@ -481,16 +483,16 @@ input[type="submit"] {
 
 ### Metrics
 - Largest Contentful Paint (LCP): < 2.5s
-- First Input Delay (FID): < 100ms
+- Interaction to Next Paint (INP): < 100ms
 - Cumulative Layout Shift (CLS): < 0.1
 
 ---
 
 ## Changelog
 
-### v1.0 (2025)
+### v1.0 (2026)
 - Initial design system release
-- WCAG 2.1 AA compliance
+- WCAG 2.1 AA implementation baseline; WCAG 2.2 AA target
 - Mobile-first responsive design
 - Comprehensive component library
 - Accessibility features
