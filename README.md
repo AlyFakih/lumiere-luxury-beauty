@@ -4,7 +4,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![Version](https://img.shields.io/badge/Version-1.0-blue)
-![WCAG](https://img.shields.io/badge/WCAG-2.1%20AA-green)
+![Accessibility](https://img.shields.io/badge/Accessibility-focused-green)
 ![License](https://img.shields.io/badge/License-Private-red)
 
 ---
@@ -28,11 +28,13 @@ LuxuryBeauty/
 ├── index.html                      # Homepage
 ├── pages/
 │   ├── about.html                 # About Us
+│   ├── account.html               # Sign in / Register (client-side only)
+│   ├── cart.html                  # Shopping bag
 │   ├── category.html              # Shop / Category
-│   ├── product.html               # Product Detail
-│   ├── tutorials.html             # Beauty Tutorials
 │   ├── checkout.html              # Checkout
-│   └── account.html               # User Account (template)
+│   ├── product.html               # Product Detail
+│   ├── product-detail.html        # Product Detail (alternate layout)
+│   └── tutorials.html             # Beauty Tutorials
 │
 ├── css/
 │   ├── style.css                  # Main styles (2000+ lines)
@@ -41,6 +43,7 @@ LuxuryBeauty/
 │   ├── product.css                # Product page styles
 │   ├── category.css               # Category page styles
 │   ├── checkout.css               # Checkout styles
+│   ├── cart.css                   # Cart & account page styles
 │   ├── about.css                  # About page styles
 │   └── tutorials.css              # Tutorials page styles
 │
@@ -64,9 +67,14 @@ LuxuryBeauty/
 │   ├── product.js                 # Product detail interactions
 │   ├── category.js                # Category filtering & sorting
 │   ├── checkout.js                # Checkout logic
+│   ├── cart.js                    # Cart page logic
+│   ├── account.js                 # Account page tabs & validation
 │   ├── tutorials.js               # Tutorial features
 │   ├── about.js                   # About page interactions
 │   └── animations.js              # Advanced animations
+│
+├── fonts/                          # Self-hosted web fonts & Font Awesome
+├── tests/                          # Playwright browser regression suites
 │
 ├── images/                         # Product images & assets
 │
@@ -79,14 +87,72 @@ LuxuryBeauty/
 
 ---
 
+## 🧪 Testing & QA
+
+Browser regression is handled by nine [Playwright](https://playwright.dev/) suites in `tests/`,
+driving a real Chromium instance. `tests/07-chrome-audit.js` and
+`tests/08-aborted-requests.js` talk to the Chrome DevTools Protocol directly
+(`Network`, `Runtime`, `Log`), because request cancellation flags and per-request
+error text are not exposed through higher-level APIs.
+
+Coverage:
+
+- console errors, warnings and uncaught JavaScript exceptions
+- HTTP status and failed/cancelled request auditing
+- image decoding and font-face resolution, including a check that no external
+  font or asset CDN is contacted
+- category filtering, combined filters and all sort orders
+- product gallery, quantity bounds, size/shade selection and tabs
+- cart persistence, quantity, removal and sitewide link integrity
+- checkout validation, shipping and payment UI, promo codes and confirmation
+- `prefers-reduced-motion` behaviour
+- responsive layout at 1440x900, 1024x768, 390x844 and 320x720
+- keyboard access, focus indicators, accessible names and document structure
+
+Running them:
+
+```bash
+npm install            # installs Playwright (dev dependency only)
+npx playwright install chromium
+
+npm run serve          # terminal 1 - static server on 127.0.0.1:5500
+npm test               # terminal 2 - runs all nine suites
+
+npm run test:live      # audits the deployed site instead
+```
+
+`npm test` chains the suites and stops at the first failure, so a non-zero exit
+means a real failure. Latest verified run: **237 passed, 0 failed, 4
+informational**. The informational results are expected capability notes
+(for example, `product-detail.html` has no shade selector), not skipped
+assertions.
+
+Accessibility is verified against WCAG 2.1/2.2 success criteria as a reference
+standard. This is not a certified conformance claim and no formal audit has been
+commissioned.
+
+---
+
 ## 🎨 Design System
 
 ### Color Palette
-- **Primary Gold**: `#d4af37` - Main accent, CTAs
-- **Dark**: `#1a1a1a` - Text, primary content
-- **Cream**: `#f9f7f5` - Background, neutral
-- **Secondary**: `#f8c3cd` - Rose gold accents
-- **Accent**: `#e75480` - Alerts, important states
+
+Defined as custom properties in `css/style.css`. Contrast ratios are measured
+against `--color-surface` (white) and `--color-background`.
+
+- **Gold** `#8B6914` (`--color-primary`) - the only gold used for text, fills or
+  borders on a light surface (5.09 / 4.83)
+- **Light Gold** `#c9a96e` (`--color-primary-light`) - gold on dark sections
+  (6.24 on charcoal); decorative only on light surfaces, never text
+- **Text** `#1a1a1a` (`--color-text`) - primary text (21.00 / 16.54)
+- **Text Light** `#5f5f5f` (`--color-text-light`) - secondary text (6.39 / 6.07)
+- **Background** `#faf9f7` (`--color-background`) - warm off-white page ground
+- **Surface** `#ffffff` (`--color-surface`) - cards, dropdowns, panels
+- **Charcoal** `#2c2c2c` (`--color-charcoal`) - dark sections
+- **Border** `#e8e4df` (`--color-border`) - hairline rules, non-text
+- **Accent** `#c2185b` (`--color-accent`) - alerts and important states
+  (5.87 / 5.58)
+- **Secondary** `#f8c3cd` (`--color-secondary`) - decorative rose only
 
 ### Typography
 - **Display**: Playfair Display (serif) - elegant headings
@@ -94,10 +160,11 @@ LuxuryBeauty/
 - **Sizes**: 0.75rem (tiny) to 3.5rem (h1)
 
 ### Key Features
-- 11-color system with semantic naming
-- CSS custom properties for consistency
-- Responsive font scaling
-- Premium shadow system
+- 14 colour tokens with semantic naming; four are legacy aliases kept so
+  existing `var(--color-*)` references resolve
+- CSS custom properties for colour, spacing, type, transition and shadow
+- Six-step spacing scale (`--space-xs` through `--space-xxl`)
+- Four-step shadow scale
 
 👉 **See [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) for complete details**
 
@@ -105,9 +172,12 @@ LuxuryBeauty/
 
 ## ♿ Accessibility Features
 
-### WCAG 2.1 Level AA Compliance
+### Accessibility measures
 
-✅ **Implemented:**
+WCAG 2.1/2.2 success criteria are used as a reference standard. This is not a
+certified conformance claim.
+
+**Implemented:**
 - ARIA labels and descriptions
 - Semantic HTML structure
 - Keyboard navigation (Tab, Enter, Escape, Arrows)
@@ -117,8 +187,7 @@ LuxuryBeauty/
 - Alt text on all images
 - Skip-to-main-content link
 - Screen reader optimization
-- Reduced motion support
-- Dark mode support
+- Reduced-motion support (`prefers-reduced-motion`)
 
 ✅ **Components:**
 - Toast notifications (live region)
@@ -173,8 +242,10 @@ LuxuryBeauty/
 - **Font Awesome 6.0** - Icons
 
 ### External Libraries
-- Google Fonts (Playfair Display, Montserrat)
-- Placeholder service for images
+None at runtime. Playfair Display, Montserrat and Font Awesome 6 are all
+self-hosted under `fonts/`, and all images are local files in `images/`. No
+external CDN, font host or image host is contacted. Playwright is a development
+dependency only.
 
 ### Development Best Practices
 - No build tools required (vanilla approach)
@@ -506,7 +577,7 @@ Performance: not audited. No Lighthouse or profiling results are published for t
 ✅ Toast notifications  
 ✅ Loading states  
 ✅ Empty states  
-✅ Dark mode support  
+Dark mode is intentionally not implemented (see DESIGN_SYSTEM.md)
 ✅ Reduced motion support  
 ✅ Skip navigation link  
 

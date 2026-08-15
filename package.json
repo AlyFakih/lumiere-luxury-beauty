@@ -1,10 +1,11 @@
 {
   "name": "luxurybeauty",
   "version": "1.0.0",
-  "description": "**A premium, accessible, and performance-optimized luxury beauty e-commerce frontend UI/UX project.**",
-  "main": "index.js",
+  "description": "A frontend-only luxury beauty storefront demo built with vanilla HTML, CSS and JavaScript.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "node tests/server.js 5500",
+    "test": "node tests/01-console-and-index.js && node tests/02-cart-and-links.js && node tests/03-reduced-motion.js && node tests/04-category.js && node tests/05-product.js && node tests/06-checkout.js && node tests/07-chrome-audit.js && node tests/08-aborted-requests.js && node tests/09-responsive-a11y.js",
+    "test:live": "node tests/07-chrome-audit.js https://lumiere-luxe.netlify.app && node tests/08-aborted-requests.js https://lumiere-luxe.netlify.app && node tests/09-responsive-a11y.js https://lumiere-luxe.netlify.app"
   },
   "keywords": [],
   "author": "",

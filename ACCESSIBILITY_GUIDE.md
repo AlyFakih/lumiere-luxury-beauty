@@ -65,19 +65,20 @@ Focus indicators: 3:1 minimum
 ```css
 /* ✓ Sufficient contrast */
 body {
-    color: #1a1a1a;
-    background-color: #f9f7f5;
+    color: var(--color-text);        /* #1a1a1a */
+    background-color: var(--color-background);  /* #faf9f7 -> 16.54:1 */
 }
 
 /* Verify actual contrast before release.
    Do not rely on comments claiming a fixed ratio. */
 
-/* Primary button:
-   Verify the actual foreground/background contrast
-   before release. */
-.btn-primary {
-    background-color: #d4af37;
-    color: white;
+/* Primary button hover uses the gold token. #8B6914 with white text
+   measures 5.09:1. The earlier #d4af37 measured 2.10:1 with white and
+   failed both the 4.5:1 text threshold and the 3:1 large-text
+   threshold, so it is not used for text, fills or borders. */
+.btn-primary:hover {
+    background-color: var(--color-primary);  /* #8B6914 */
+    color: #fff;
 }
 
 /* ✓ Error message contrast */
@@ -518,8 +519,10 @@ function getContrastRatio(color1, color2) {
     return (lighter + 0.05) / (darker + 0.05);
 }
 
-// Test required contrast
-const ratio = getContrastRatio('#d4af37', '#f9f7f5');
+// Test required contrast. Gold on the page ground: #8B6914 measures
+// 4.83:1 and passes. The previous #d4af37 measured 1.97:1 here and
+// would have failed this assertion.
+const ratio = getContrastRatio('#8B6914', '#faf9f7');
 console.assert(ratio >= 4.5, 'Contrast ratio must be 4.5:1 or higher');
 ```
 

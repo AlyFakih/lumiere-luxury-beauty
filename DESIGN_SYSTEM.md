@@ -54,19 +54,34 @@ Use design tokens and components to maintain consistency across the product.
 
 ### Primary Colors
 
-| Color | Hex | Usage | Accessibility |
-|-------|-----|-------|---|
-| **Gold** | `#d4af37` | Primary CTA, highlights, accents | Verify contrast against the actual background before release |
-| **Dark** | `#1a1a1a` | Text, primary content | Contrast: 21:1 ✓ |
-| **Cream** | `#f9f7f5` | Background, neutral spaces | Contrast: 1:1 |
+Ratios below are measured against `--color-surface` (#ffffff) and
+`--color-background` (#faf9f7).
+
+| Color | Hex | Token | Usage | Contrast |
+|-------|-----|-------|-------|---|
+| **Gold** | `#8B6914` | `--color-primary` | Text, fills and borders on light surfaces | 5.09 / 4.83 |
+| **Light Gold** | `#c9a96e` | `--color-primary-light` | Gold on dark sections only | 6.24 on charcoal |
+| **Text** | `#1a1a1a` | `--color-text` | Primary text | 21.00 / 16.54 |
+| **Text Light** | `#5f5f5f` | `--color-text-light` | Secondary text | 6.39 / 6.07 |
+| **Background** | `#faf9f7` | `--color-background` | Warm off-white page ground | ground |
+| **Surface** | `#ffffff` | `--color-surface` | Cards, dropdowns, panels | ground |
+| **Charcoal** | `#2c2c2c` | `--color-charcoal` | Dark sections | ground |
+
+`--color-primary` is the only gold permitted for text, fills or borders on a
+light surface. It measures 2.75:1 against `--color-charcoal`, so gold appearing
+on a dark section must use `--color-primary-light`. The reverse also holds:
+`--color-primary-light` is 2.24:1 on white, making it decorative-only there —
+rules, dividers and ornament, never text.
 
 ### Secondary Colors
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| **Soft Rose Gold** | `#f8c3cd` | Secondary accents, hover states |
-| **Neutral Grey** | `#8a8a8a` | Secondary text, borders |
-| **Vibrant Accent** | `#e75480` | Alert states, important notifications |
+| Color | Hex | Token | Usage | Contrast |
+|-------|-----|-------|-------|---|
+| **Border** | `#e8e4df` | `--color-border` | Hairline rules (non-text) | n/a |
+| **Grey** | `#6f6f6f` | `--color-grey` | Secondary text | 5.02 / 4.78 |
+| **Grey Dark** | `#4a4a4a` | `--color-grey-dark` | Body copy on light grounds | 8.86 / 8.42 |
+| **Accent** | `#c2185b` | `--color-accent` | Alert states, important notifications | 5.87 / 5.58 |
+| **Soft Rose** | `#f8c3cd` | `--color-secondary` | Decorative accents only, never text | n/a |
 
 ### Functional Colors
 
@@ -77,18 +92,17 @@ Use design tokens and components to maintain consistency across the product.
 | **Warning** | `#ff9800` | Warnings, cautions |
 | **Info** | `#2196f3` | Information, help text |
 
-### Dark Mode Support
+### Dark Mode
 
-The design system includes support for dark mode with inverted colors:
+Not implemented. A previous `@media (prefers-color-scheme: dark)` block swapped
+`--color-dark` and `--color-light` globally while every other rule kept its
+hardcoded light-mode value. On a dark-mode OS that produced unreadable text
+wherever the two were combined — most visibly `.main-nav.scrolled`, which keeps
+a white background while its links resolved to `#f9f7f5`, a ratio of 1.07:1
+against a 4.5:1 requirement.
 
-```css
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-dark: #f9f7f5;   /* Light backgrounds */
-    --color-light: #1a1a1a;  /* Dark backgrounds */
-  }
-}
-```
+It was removed rather than patched. A correct dark mode requires every surface,
+border and shadow to be tokenised, not just the two text colours.
 
 ---
 
@@ -431,27 +445,50 @@ input[type="submit"] {
 
 ```css
 :root {
-    /* Colors */
-    --color-primary: #d4af37;
-    --color-secondary: #f8c3cd;
+    /* Surfaces */
+    --color-background: #faf9f7;   /* warm off-white page ground */
+    --color-surface: #ffffff;      /* cards, dropdowns, panels   */
+    --color-charcoal: #2c2c2c;     /* dark sections              */
+    --color-border: #e8e4df;       /* hairline rules (non-text)  */
+
+    /* Text */
+    --color-text: #1a1a1a;         /* 21.00 / 16.54 */
+    --color-text-light: #5f5f5f;   /*  6.39 /  6.07 */
+
+    /* Gold */
+    --color-primary: #8B6914;       /* text/fills on light surfaces */
+    --color-primary-light: #c9a96e; /* gold on dark grounds only    */
+
+    /* Legacy aliases, kept so existing var() references resolve */
     --color-dark: #1a1a1a;
-    --color-light: #f9f7f5;
-    --color-grey: #8a8a8a;
-    --color-accent: #e75480;
-    
+    --color-light: #faf9f7;
+    --color-grey: #6f6f6f;
+    --color-grey-dark: #4a4a4a;
+    --color-secondary: #f8c3cd;    /* decorative only */
+    --color-accent: #c2185b;
+
     /* Typography */
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
-    
+
     /* Transitions */
     --transition-slow: 0.5s ease;
     --transition-medium: 0.3s ease;
     --transition-fast: 0.2s ease;
-    
+
     /* Shadows */
     --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
     --shadow-hard: 0 10px 50px rgba(0, 0, 0, 0.15);
+    --shadow-large: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+    /* Spacing scale */
+    --space-xs: 0.5rem;    /*   8px */
+    --space-sm: 1rem;      /*  16px */
+    --space-md: 2rem;      /*  32px */
+    --space-lg: 4rem;      /*  64px */
+    --space-xl: 8rem;      /* 128px */
+    --space-xxl: 12rem;    /* 192px */
 }
 ```
 

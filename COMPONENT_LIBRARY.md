@@ -452,6 +452,40 @@ cartItemsContainer.innerHTML = `
 
 ---
 
+## Page-Level Components
+
+These are implemented in the pages listed and driven by the matching script in
+`js/`. Class names below are the ones actually used in the markup.
+
+| Component | Classes | Page | Script |
+|---|---|---|---|
+| Category filters | `.filter-title`, `.filter-option`, `#priceMin` / `#priceMax` | category | `category.js` |
+| Sorting | `#sort-select` | category | `category.js` |
+| Quick view | `.btn-quick-view` → `.quick-view-modal` | category | `category.js` |
+| Pagination | `.pagination-btn` | category | `category.js` |
+| Product gallery | `.gallery-thumbnails`, `.thumbnail` | product, product-detail | `product.js` |
+| Shade selector | `.color-option` | product | `product.js` |
+| Size selector | `.size-option` | product, product-detail | `product.js` |
+| Quantity stepper | `.quantity-btn.minus` / `.plus`, `#quantity` | product, product-detail | `product.js` |
+| Product tabs | `.tab-btn`, `.tab-panel` | product, product-detail | `product.js` |
+| Cart line items | `.cart-line`, `.qty-btn`, `.cart-line-remove` | cart | `cart.js` (rendered at runtime) |
+| Order summary | `.summary-subtotal`, `.summary-shipping`, `.summary-total` | cart | `cart.js` |
+| Account tabs | `.account-tab`, `.account-form` | account | `account.js` |
+| Checkout steps | `.step`, `.form-step` | checkout | `checkout.js` |
+| Skip link | `.skip-to-main` | all pages | — |
+| Mobile navigation | `.mobile-menu-toggle` → `.mobile-nav` | all pages | `main.js` (injected) |
+
+Notes:
+
+- `.cart-line` and its controls do not appear in static markup; `cart.js` builds
+  them from the `lumiereCart` localStorage entry on load.
+- `.mobile-nav` is likewise injected by `main.js`, with link paths resolved
+  against the current directory depth.
+- Checkout, account and the newsletter form validate client-side only. No
+  request is made to any server, no payment is taken and no account is created.
+
+---
+
 ## Usage Guidelines
 
 ### 1. Always Include ARIA Labels
@@ -501,7 +535,7 @@ button {
 
 /* ✗ Poor */
 button {
-    background-color: #d4af37;
+    background-color: #8B6914;
     transition: all 0.3s ease;
 }
 ```

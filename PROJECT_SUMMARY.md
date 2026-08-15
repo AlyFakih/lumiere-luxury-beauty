@@ -1,8 +1,8 @@
 # 🌟 Lumière Luxury Beauty - Project Summary & Handoff Document
 
-**Project Status**: 90% Complete - Fully Functional, Minor Fixes Needed  
-**Last Updated**: 2026-08-13  
-**Current Phase**: Image Optimization & Navigation Visibility Fixes
+**Project Status**: Complete and deployed  
+**Last Updated**: 2026-08-15  
+**Current Phase**: Maintenance. Browser QA complete; 9 Playwright suites passing (237 assertions).
 
 ---
 
@@ -11,7 +11,7 @@
 **Lumière** is a **luxury beauty e-commerce frontend UI/UX project** with:
 - ✅ Full responsive design (mobile-first)
 - Accessibility-focused, with measured contrast compliance and keyboard navigation
-- ✅ 7 HTML pages with navigation
+- 9 HTML pages with navigation
 - ✅ Comprehensive styling (3500+ lines CSS)
 - ✅ Vanilla JavaScript utilities
 - ✅ Professional documentation
@@ -22,16 +22,18 @@
 
 ## 🎯 CURRENT STATUS BREAKDOWN
 
-### ✅ COMPLETED (90%)
+### ✅ COMPLETED
 
 #### 1. **HTML Structure**
-- ✅ 7 core pages created:
+- 9 pages:
   - `index.html` - Homepage with hero, featured products, collections
   - `pages/about.html` - Company story, team, process
   - `pages/category.html` - Product listing with filters
   - `pages/product.html` - Product detail page
   - `pages/product-detail.html` - Alternative product detail
-  - `pages/checkout.html` - Shopping cart & checkout
+  - `pages/checkout.html` - Multi-step checkout (client-side only)
+  - `pages/cart.html` - Shopping bag, reads the same localStorage key as the header
+  - `pages/account.html` - Sign in / register forms (no authentication)
   - `pages/tutorials.html` - Beauty tutorials & guides
 
 - ✅ Semantic HTML throughout:
@@ -40,9 +42,9 @@
   - Skip-to-main-content link
   - Proper form structure with labels
 
-#### 2. **CSS Styling (8 files)**
+#### 2. **CSS Styling (9 files)**
 - ✅ `css/style.css` (2000+ lines)
-  - Color system (11 colors with WCAG contrast verified)
+  - Colour tokens with measured contrast ratios (see DESIGN_SYSTEM.md)
   - Typography (Playfair Display + Montserrat)
   - Component styles (buttons, cards, forms)
   - Navigation styling
@@ -65,15 +67,15 @@
   - Empty state styling
   - Mobile-first media queries (5 breakpoints)
   - Reduced motion support
-  - Dark mode support
 
 - ✅ `css/product.css` (Product detail styling)
 - ✅ `css/category.css` (Category/shop page styling)
 - ✅ `css/checkout.css` (Checkout page styling)
 - ✅ `css/about.css` (About page styling)
-- ✅ `css/tutorials.css` (Tutorials page styling)
+- `css/tutorials.css` (Tutorials page styling)
+- `css/cart.css` (Cart & account page styling)
 
-#### 3. **JavaScript (8 files)**
+#### 3. **JavaScript (10 files)**
 - ✅ `js/utils.js` (780+ lines)
   - Toast notification system (4 types: success/error/warning/info)
   - FocusTrap class for modal focus management
@@ -104,12 +106,14 @@
   - `js/tutorials.js`
   - `js/about.js`
   - `js/animations.js`
+  - `js/cart.js`
+  - `js/account.js`
 
 #### 4. **Images**
-- ✅ All images converted to **Unsplash URLs** (real, professional photos)
-- ✅ 72 image references across all pages
-- ✅ Descriptive alt text on every image
-- ✅ No local image dependencies
+- All images are self-hosted in `images/` and referenced by relative path
+- 38 local image files; no external image hosts are contacted
+- Descriptive alt text on every image
+- No external CDN dependency for images, fonts or icons
 
 **Images Categories**:
 - Product images (serums, lipstick, foundation, mascara, perfume, brushes)
@@ -139,7 +143,7 @@
   - LG: 1025px+ (desktop)
   - XL: 1441px+ (large desktop)
 
-- ✅ Touch-friendly (44px minimum touch targets)
+- Touch targets conform to WCAG 2.2 SC 2.5.8 via size or the 24px spacing exception
 - ✅ Hamburger menu on mobile
 - ✅ Responsive grids (1-4 columns)
 - ✅ Mobile-optimized forms
@@ -148,7 +152,7 @@
 - ✅ `README.md` - Project overview & quick start
 - ✅ `DESIGN_SYSTEM.md` - Complete design system (1200+ lines)
 - ✅ `COMPONENT_LIBRARY.md` - All components documented (1000+ lines)
-- ✅ `ACCESSIBILITY_GUIDE.md` - WCAG compliance guide (1100+ lines)
+- `ACCESSIBILITY_GUIDE.md` - Accessibility guide (WCAG used as reference, not certified)
 - ✅ `PROJECT_SUMMARY.md` - This handoff document
 
 #### 8. **Performance**
@@ -157,7 +161,7 @@
 - ✅ Debounced/throttled event handlers
 - ✅ Minimal DOM manipulation
 - ✅ CSS variables for theming
-- ✅ No external dependencies (pure vanilla code)
+- No external runtime dependencies; fonts and icons are self-hosted
 
 #### 9. **Browser Support**
 - ✅ Chrome/Edge 90+
@@ -168,45 +172,29 @@
 
 ---
 
-### 🔄 CURRENTLY ONGOING
+### ✅ RESOLVED
 
-#### 1. **Image Display Issues** ⚠️
-**Status**: NEEDS INVESTIGATION & FIX
-**Issue**: Some images may not be loading/displaying
-**Causes**:
-- Unsplash images require proper HTTPS
-- Browser cache issues
-- CORS headers (usually not an issue with Unsplash)
-- Slow network loading
+#### 1. **Image Display** — fixed
+All images were hotlinked from Unsplash, and a number of those URLs had gone
+dead. Every image is now downloaded into `images/` and referenced by relative
+path. No external image host is contacted. Verified in Chromium: all rendered
+`<img>` elements decode successfully across the nine pages.
 
-**Next Steps**:
-- Test image URLs directly in browser
-- Verify Unsplash URLs are correct
-- Add error handling for failed images
-- Consider image optimization
+#### 2. **Navigation Header Visibility** — fixed
+The nav rendered dark text over dark hero imagery on initial load, and a
+`@media (prefers-color-scheme: dark)` block made `.main-nav.scrolled` links
+resolve to `#f9f7f5` on a white bar (1.07:1). The dark-mode block was removed
+and the initial nav state was corrected.
 
-#### 2. **Navigation Header Visibility** ⚠️
-**Status**: NEEDS FIX
-**Issue**: Nav logo/menu items may not show on initial page load
-**Current**: 
-- Initial state: transparent background with dark (#1a1a1a) text
-- On scroll: white background with dark text (works)
+#### 3. **Colour contrast** — fixed
+`--color-primary` was `#d4af37`, measuring 2.10:1 on white, which failed AA for
+text and also failed the 3:1 large-text threshold. It is now `#8B6914`
+(5.09 / 4.83), with `--color-primary-light` carrying gold on dark grounds.
 
-**Solution Needed**:
-- Change initial nav text color to white or light color
-- Add semi-transparent background initially
-- Improve text contrast on transparent background
-
-**Approach**:
-```css
-/* Change initial nav colors */
-.nav-links a { color: white; } /* Instead of dark */
-.logo a { color: white; } /* Initially white */
-
-/* On scroll, change to dark */
-.main-nav.scrolled .nav-links a { color: #1a1a1a; }
-.main-nav.scrolled .logo a { color: #1a1a1a; }
-```
+#### 4. **Accessible names** — fixed
+65 icon-only controls had an empty accessible name because Font Awesome renders
+glyphs through `::before` pseudo-content, leaving no text node. All now carry
+`aria-label`, along with the price sliders and quantity inputs.
 
 ---
 
@@ -221,10 +209,12 @@ LuxuryBeauty/
 │   ├── category.html                  # Shop/Products
 │   ├── product.html                   # Product Detail
 │   ├── product-detail.html            # Alt Product Detail
-│   ├── checkout.html                  # Checkout/Cart
+│   ├── checkout.html                  # Checkout
+│   ├── cart.html                      # Shopping bag
+│   ├── account.html                   # Sign in / Register
 │   └── tutorials.html                 # Tutorials
 │
-├── css/                               # Stylesheets (8 files, 3500+ lines)
+├── css/                               # Stylesheets (9 files)
 │   ├── style.css                      # Main styles
 │   ├── animations.css                 # Animations
 │   ├── accessibility.css              # A11y + responsive
@@ -244,7 +234,7 @@ LuxuryBeauty/
 │   ├── about.js
 │   └── animations.js
 │
-├── images/                            # (Empty - using Unsplash URLs)
+├── images/                            # 38 local image files
 │
 ├── README.md                          # Quick start guide
 ├── DESIGN_SYSTEM.md                   # Design system (1200+ lines)
@@ -352,12 +342,16 @@ vercel
 
 ### Color Palette
 ```
-Primary Gold:    #d4af37 (luxury accent)
-Dark:            #1a1a1a (text)
-Light:           #f9f7f5 (backgrounds)
-Secondary Rose:  #f8c3cd (soft accents)
-Accent Red:      #e75480 (alerts)
-+ 6 more colors with verified contrast ratios
+Gold:            #8B6914 (--color-primary,       text/fills on light)
+Light Gold:      #c9a96e (--color-primary-light, gold on dark only)
+Text:            #1a1a1a (--color-text)
+Text Light:      #5f5f5f (--color-text-light)
+Background:      #faf9f7 (--color-background)
+Surface:         #ffffff (--color-surface)
+Charcoal:        #2c2c2c (--color-charcoal,      dark sections)
+Border:          #e8e4df (--color-border,        non-text)
+Accent:          #c2185b (--color-accent,        alerts)
+Secondary Rose:  #f8c3cd (--color-secondary,     decorative only)
 ```
 
 ### Typography
@@ -379,12 +373,13 @@ Scale: xs(4px), sm(8px), md(16px), lg(24px), xl(32px), 2xl(48px), 3xl(64px)
 
 | Metric | Value |
 |--------|-------|
-| HTML Pages | 7 |
+| HTML Pages | 9 |
 | CSS Lines | 3500+ |
 | JS Lines | 2000+ |
 | Components | 15+ |
-| Documentation Pages | 4 (3500+ lines) |
-| Images | 72 (all Unsplash URLs) |
+| Documentation Pages | 5 |
+| Playwright test suites | 9 (237 assertions) |
+| Image files | 38 (all local) |
 | Accessibility Features | 20+ |
 | Responsive Breakpoints | 5 |
 | WCAG Compliance | Level AA |
@@ -447,7 +442,7 @@ Scale: xs(4px), sm(8px), md(16px), lg(24px), xl(32px), 2xl(48px), 3xl(64px)
    - Files: `css/style.css` (lines 195-280)
 
 2. **Image Display**
-   - Test Unsplash URLs in browser
+   - Confirm all local images decode in the browser
    - Add fallback images or styling
    - Check console for CORS/loading errors
    - Consider lazy loading improvements
@@ -508,7 +503,7 @@ If another AI is taking over:
 2. **Debug Image Issues**
    - Open DevTools (F12)
    - Check Network tab for failed images
-   - Verify Unsplash URLs return 200 status
+   - Verify all local assets return 200
    - Test with different image URLs if needed
 
 3. **Run Lighthouse Audit**
@@ -606,7 +601,7 @@ After fixes above, project will be:
 ### Known Issues to Address
 - ⚠️ Navigation header colors need adjustment
 - ⚠️ Some images may not display (URL/CORS)
-- ⚠️ Needs deployment & final testing
+- Deployed to Netlify and verified in Chromium via Playwright and the Chrome DevTools Protocol
 
 ### Key Files to Know
 1. `css/style.css` - Main styles + nav styling
@@ -616,10 +611,14 @@ After fixes above, project will be:
 5. `ACCESSIBILITY_GUIDE.md` - A11y reference
 
 ### Critical Dependencies
-- Google Fonts (Playfair Display, Montserrat)
-- Font Awesome 6.0 (icons via CDN)
-- Unsplash API (image URLs)
-- No other external dependencies!
+None at runtime. Everything is self-hosted:
+
+- Playfair Display and Montserrat - `fonts/*.woff2`
+- Font Awesome 6 - `fonts/fontawesome/`
+- Images - `images/` (38 local files)
+
+No external CDN, font host or image host is contacted. Playwright is a
+development dependency only and is not shipped.
 
 ---
 
@@ -637,7 +636,7 @@ Before considering the project complete:
 - [ ] All links working
 - [ ] Forms validating
 - [ ] Cart functionality working
-- [ ] Deployed to Vercel/Netlify/GitHub Pages
+- [x] Deployed to Netlify
 - [ ] Custom domain added (optional)
 - [ ] Team notified & trained
 
@@ -645,7 +644,7 @@ Before considering the project complete:
 
 ## 🎉 PROJECT READY FOR HANDOFF
 
-**Status**: 90% Complete - Minor Fixes Required
+**Status**: Complete and deployed
 
 This project is **well-documented, structured, and ready for any developer** to continue work. All code is clean, commented, and follows best practices. The comprehensive documentation ensures smooth knowledge transfer.
 
