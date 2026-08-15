@@ -576,8 +576,22 @@ function initPageTransitions() {
         document.body.classList.add('page-loaded');
     });
     
-    // Page exit animation
-    const links = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"])');
+    // Page exit animation.
+    //
+    // Anchors that act as in-page controls must be excluded. This handler is
+    // bound at parse time, so it runs before any DOMContentLoaded handler that
+    // might call preventDefault(), and it navigates by assigning
+    // window.location.href directly -- preventDefault() cannot stop it.
+    //
+    // .btn-quick-view is an <a href="product.html?id=N"> whose own handler
+    // opens the quick-view modal. Without this exclusion the modal opened and
+    // was then destroyed 500ms later when this handler navigated away, so
+    // quick view never worked on the category page.
+    //
+    // data-no-transition is the general opt-out for any future control anchor.
+    const links = document.querySelectorAll(
+        'a:not([target="_blank"]):not([href^="#"]):not(.btn-quick-view):not([data-no-transition])'
+    );
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -632,27 +646,35 @@ if (mobileMenuToggle) {
     const mobileNav = document.createElement('div');
     mobileNav.className = 'mobile-nav';
     
+    // The mobile nav is injected on every page, but index.html sits at the repo
+    // root while every other page sits in /pages/. These hrefs were hardcoded
+    // root-relative ("pages/category.html"), which resolved to
+    // /pages/pages/category.html from any sub-page: 6 links x 7 sub-pages = 42
+    // dead links. They are built here rather than in the markup, so a grep of
+    // pages/*.html does not surface them.
+    const pfx = window.location.pathname.includes('/pages/') ? '' : 'pages/';
+
     mobileNav.innerHTML = `
         <div class="mobile-nav-container">
             <div class="mobile-nav-header">
                 <div class="logo">Lumière</div>
-                <button class="close-mobile-nav">
-                    <i class="fas fa-times"></i>
+                <button class="close-mobile-nav" aria-label="Close navigation menu">
+                    <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
             </div>
             <div class="mobile-nav-content">
                 <ul class="mobile-nav-links">
                     <li class="mobile-dropdown">
-                        <a href="#" class="mobile-dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                        <a href="#" class="mobile-dropdown-toggle" aria-expanded="false">Shop <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
                         <ul class="mobile-dropdown-content">
-                            <li><a href="pages/category.html?category=makeup">Makeup</a></li>
-                            <li><a href="pages/category.html?category=skincare">Skincare</a></li>
-                            <li><a href="pages/category.html?category=fragrance">Fragrance</a></li>
-                            <li><a href="pages/category.html?category=tools">Tools</a></li>
+                            <li><a href="${pfx}category.html?category=makeup">Makeup</a></li>
+                            <li><a href="${pfx}category.html?category=skincare">Skincare</a></li>
+                            <li><a href="${pfx}category.html?category=fragrance">Fragrance</a></li>
+                            <li><a href="${pfx}category.html?category=tools">Tools</a></li>
                         </ul>
                     </li>
-                    <li><a href="pages/about.html">About</a></li>
-                    <li><a href="pages/tutorials.html">Tutorials</a></li>
+                    <li><a href="${pfx}about.html">About</a></li>
+                    <li><a href="${pfx}tutorials.html">Tutorials</a></li>
                 </ul>
             </div>
         </div>

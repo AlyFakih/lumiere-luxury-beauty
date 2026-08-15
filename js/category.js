@@ -373,25 +373,50 @@ document.addEventListener('DOMContentLoaded', function() {
         const addToCartBtn = modal.querySelector('.add-to-cart-btn');
         addToCartBtn.addEventListener('click', () => {
             const quantity = parseInt(quantityInput.value);
-            
-            // Add to cart functionality would go here
-            console.log(`Added ${quantity} ${name} to cart`);
-            
+
+            // Persist to the same lumiereCart key main.js uses. This branch
+            // previously only incremented the badge text, so a quick-view add
+            // never reached storage: the count was wrong the moment anything
+            // else recalculated it, and the item vanished on reload.
+            const cartItems = getFromStorage('lumiereCart', []);
+            const existing = cartItems.findIndex(item => item.name === name);
+
+            if (existing !== -1) {
+                cartItems[existing].quantity += quantity;
+                showToast(`${name} quantity updated`, 'info', 2000);
+            } else {
+                cartItems.push({ name: name, price: price, image: img, quantity: quantity });
+                showToast(`${name} added to bag!`, 'success', 2000);
+            }
+
+            setToStorage('lumiereCart', cartItems);
+
+            // main.js holds `cart` in memory from page load. Mutate that same
+            // array in place rather than reassigning it, otherwise the next
+            // grid add-to-cart would write its stale copy back over this item.
+            if (typeof cart !== 'undefined' && Array.isArray(cart)) {
+                cart.length = 0;
+                cartItems.forEach(item => cart.push(item));
+            }
+
             // Close modal
             modal.classList.remove('active');
-            
+
             setTimeout(() => {
                 modal.remove();
-                
-                // Update cart count
+
+                // Derive the badge from stored state rather than adding to
+                // whatever happened to be rendered.
                 const cartCount = document.querySelector('.cart-count');
-                cartCount.textContent = parseInt(cartCount.textContent) + quantity;
-                
-                // Show animation
-                cartCount.classList.add('pulse-animation');
-                setTimeout(() => {
-                    cartCount.classList.remove('pulse-animation');
-                }, 1000);
+                if (cartCount) {
+                    cartCount.textContent = cartItems.reduce(
+                        (n, item) => n + (item.quantity || 1), 0);
+
+                    cartCount.classList.add('pulse-animation');
+                    setTimeout(() => {
+                        cartCount.classList.remove('pulse-animation');
+                    }, 1000);
+                }
             }, 500);
         });
     }
