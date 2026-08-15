@@ -591,17 +591,6 @@ textarea:focus {
 }
 
 /* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Form Animations */
 .form-group input:focus + label {
     color: var(--color-primary);

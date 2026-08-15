@@ -641,3 +641,19 @@ footer {
         right: -100%;
     }
 }
+
+/* Canonical fade. Opacity only.
+   Five conflicting @keyframes fadeIn definitions previously lived in
+   about.css, accessibility.css, checkout.css, product.css and
+   tutorials.css, with translateY offsets of 0, 10px, 20px and 30px.
+   Because they share a name, the last stylesheet loaded won: a toast or
+   confirm-dialog backdrop on about.html inherited a 30px slide intended
+   for body copy. One definition, one behaviour.
+
+   Elements that genuinely need to travel use fadeInUp below, which
+   declares only a `to` state so each element keeps its own starting
+   offset. */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
