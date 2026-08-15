@@ -9,6 +9,8 @@ const PAGES = [
     ['product.html',                '/pages/product.html'],
     ['product-detail.html',         '/pages/product-detail.html'],
     ['tutorials.html',              '/pages/tutorials.html'],
+    ['cart.html',                   '/pages/cart.html'],
+    ['account.html',                '/pages/account.html'],
 ];
 
 (async () => {

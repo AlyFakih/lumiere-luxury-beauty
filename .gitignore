@@ -7,3 +7,4 @@ dead_images.txt
 all_unsplash_urls.txt
 
 node_modules/
+package-lock.json
