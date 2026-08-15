@@ -25,8 +25,8 @@ Lumière is a luxury beauty e-commerce platform with a focus on elegance, sophis
 
 ### Key Features
 - **Luxury Aesthetic**: Gold accents, cream backgrounds, and sophisticated typography
-- **Inclusive Design**: WCAG 2.1 AA implementation baseline; WCAG 2.2 AA target
-- **Performance-Optimized**: Fast load times with optimized assets
+- **Inclusive Design**: accessibility-focused, with measured contrast compliance and keyboard navigation. WCAG 2.1 AA is used as a reference standard, not a certified result.
+- **Performance**: not audited. No Lighthouse or profiling results are published for this project.
 - **Responsive**: Mobile-first approach with tablet and desktop support
 
 ---
@@ -308,7 +308,7 @@ Based on 8px base unit:
 
 > Documentation alone does not establish WCAG conformance. The final implementation must be validated with automated and manual accessibility testing.
 
-### WCAG 2.1 AA Compliance
+### Accessibility measures (WCAG 2.1 AA used as reference)
 
 All components meet WCAG 2.1 Level AA standards:
 
@@ -492,7 +492,7 @@ input[type="submit"] {
 
 ### v1.0 (2026)
 - Initial design system release
-- WCAG 2.1 AA implementation baseline; WCAG 2.2 AA target
+- WCAG 2.1 AA used as a reference standard; conformance is not certified
 - Mobile-first responsive design
 - Comprehensive component library
 - Accessibility features

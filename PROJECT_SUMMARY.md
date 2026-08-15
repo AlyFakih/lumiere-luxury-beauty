@@ -10,7 +10,7 @@
 
 **Lumière** is a **luxury beauty e-commerce frontend UI/UX project** with:
 - ✅ Full responsive design (mobile-first)
-- ✅ Complete accessibility (WCAG 2.1 AA)
+- Accessibility-focused, with measured contrast compliance and keyboard navigation
 - ✅ 7 HTML pages with navigation
 - ✅ Comprehensive styling (3500+ lines CSS)
 - ✅ Vanilla JavaScript utilities
@@ -120,7 +120,7 @@
 - Instagram-style gallery
 
 #### 5. **Accessibility Features**
-- ✅ WCAG 2.1 AA implementation baseline; WCAG 2.2 AA target
+- WCAG 2.1 AA used as a reference standard; conformance is not certified
 - ✅ Color contrast 4.5:1+ on all text
 - ✅ Keyboard navigation (Tab, Shift+Tab, Enter, Space, Escape, Arrows)
 - ✅ ARIA labels & descriptions
@@ -459,7 +459,7 @@ Scale: xs(4px), sm(8px), md(16px), lg(24px), xl(32px), 2xl(48px), 3xl(64px)
    - Check all interactive elements
    - Test forms and validation
 
-4. **Performance Optimization**
+4. **Performance** (not audited)
    - Run Lighthouse audit
    - Optimize image loading
    - Minify CSS/JS for production
@@ -571,7 +571,7 @@ npm install -D stylelint
 
 ### Current Status: 90% ✅
 - [x] Responsive design works
-- [x] Accessibility compliant
+- [x] Accessibility measures implemented (not certified)
 - [x] All pages functional
 - [x] Professional styling
 - [x] Documentation complete
@@ -583,7 +583,7 @@ npm install -D stylelint
 ### Target: 100% Complete
 After fixes above, project will be:
 - ✅ Production-ready
-- ✅ Fully accessible
+- Accessibility-focused; not independently audited
 - ✅ High performance
 - ✅ Professional quality
 - ✅ Well documented

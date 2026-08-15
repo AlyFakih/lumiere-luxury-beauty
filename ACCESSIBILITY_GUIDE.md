@@ -1,7 +1,7 @@
 # ♿ Accessibility Guide
 
 **Lumière Luxury Beauty - Web Accessibility & WCAG Compliance**  
-Version 1.1 | WCAG 2.1 AA baseline / WCAG 2.2 AA target
+Version 1.2 | WCAG 2.1 AA used as a reference standard. Conformance is not certified and no automated audit has been run.
 
 ---
 
@@ -29,7 +29,7 @@ Version 1.1 | WCAG 2.1 AA baseline / WCAG 2.2 AA target
 
 ### Our Commitment
 
-- ✓ WCAG 2.1 AA is the current implementation baseline
+- WCAG 2.1 AA is the reference standard used while building. It is not a certified conformance claim.
 - ✓ WCAG 2.2 AA is the recommended target for new improvements
 - ⚠️ Formal conformance requires automated and manual testing
 - ✓ Screen reader optimization

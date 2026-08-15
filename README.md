@@ -1,6 +1,6 @@
 # 🌟 Lumière - Luxury Beauty E-Commerce UI/UX
 
-**A premium, accessible, and performance-optimized luxury beauty e-commerce frontend UI/UX project.**
+**A luxury beauty e-commerce frontend built in vanilla HTML, CSS and JavaScript. Accessibility-focused, with measured contrast compliance and keyboard navigation.**
 
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![Version](https://img.shields.io/badge/Version-1.0-blue)
@@ -13,7 +13,7 @@
 
 **Lumière** is a sophisticated, luxury beauty e-commerce platform frontend focusing on:
 - ✨ **Premium Aesthetic** - Gold accents, elegant typography, refined design
-- ♿ **Full Accessibility** - WCAG 2.1 AA compliant
+- ♿ **Accessibility-focused** - measured contrast compliance and keyboard navigation
 - 📱 **Responsive Design** - Mobile-first, works on all devices
 - ⚡ **Performance** - Optimized loading, smooth animations
 - 🎨 **Component-Driven** - Reusable, well-documented components
@@ -436,7 +436,7 @@ refactor: Optimize custom cursor performance
 - **Total JS**: ~2000+ lines of vanilla ES6+
 - **HTML Pages**: 7 core pages
 - **Components**: 15+ reusable components
-- **Accessibility**: WCAG 2.1 AA compliant
+- **Accessibility**: accessibility-focused, with measured contrast compliance and keyboard navigation (no automated audit has been run; not certified AA)
 - **Browser Support**: 5+ major browsers
 - **Mobile Support**: Full responsive support
 - **Performance**: 90+ Lighthouse score
@@ -497,7 +497,7 @@ This is a portfolio/showcase project. For questions or improvements:
 ✅ Mobile-first design  
 ✅ Responsive images  
 ✅ Lazy loading  
-✅ Performance optimized  
+Performance: not audited. No Lighthouse or profiling results are published for this project.  
 ✅ Clean code structure  
 ✅ Comprehensive documentation  
 ✅ Touch-friendly UI  
@@ -521,7 +521,7 @@ This is a portfolio/showcase project. For questions or improvements:
 ## 🙏 Acknowledgments
 
 Built with attention to:
-- Accessibility standards (WCAG 2.1 AA)
+- Accessibility standards (WCAG 2.1 AA used as a reference, not certified)
 - Performance best practices
 - Modern web design patterns
 - User experience excellence
