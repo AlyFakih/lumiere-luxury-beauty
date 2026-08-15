@@ -4,8 +4,17 @@
 const heroProducts = document.querySelectorAll('.floating-product');
 const shimmerOverlay = document.querySelector('.shimmer-overlay');
 
+// Respect the user's OS/browser reduced-motion preference.
+const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function prefersReducedMotion() {
+    return motionMediaQuery.matches;
+}
+
 // 3D Tilt Effect for Products
 function init3DTilt() {
+    if (prefersReducedMotion()) return;
+
     const productCards = document.querySelectorAll('.product-card');
     
     productCards.forEach(card => {
@@ -36,6 +45,8 @@ function init3DTilt() {
 
 // Parallax Effect for Hero Products
 function initParallax() {
+    if (prefersReducedMotion()) return;
+
     window.addEventListener('mousemove', e => {
         if (!heroProducts.length) return;
         
@@ -60,6 +71,14 @@ function initParallax() {
 // Scroll Reveal Animation
 function initScrollReveal() {
     const sections = document.querySelectorAll('section');
+
+    if (prefersReducedMotion()) {
+        sections.forEach(section => {
+            section.classList.add('reveal-section', 'revealed');
+        });
+        return;
+    }
+
     const options = {
         threshold: 0.1
     };
@@ -81,6 +100,8 @@ function initScrollReveal() {
 
 // Particles/Sparkle Effect
 function createSparkles() {
+    if (prefersReducedMotion()) return;
+
     if (document.querySelector('.hero')) {
         const sparkleContainer = document.createElement('div');
         sparkleContainer.classList.add('sparkle-container');
@@ -127,21 +148,15 @@ function createSparkle(container) {
 
 // Carousel Auto Rotation
 function initCarouselAutoRotation() {
+    if (prefersReducedMotion()) return;
+
     const carousel = document.querySelector('.product-carousel');
     if (!carousel) return;
     
     let scrollAmount = 0;
     const scrollStep = 1;
     const scrollInterval = 30;
-    
-    // Pause on hover
-    carousel.addEventListener('mouseenter', () => {
-        clearInterval(autoScrollInterval);
-    });
-    
-    carousel.addEventListener('mouseleave', () => {
-        autoScrollInterval = setInterval(autoScroll, scrollInterval);
-    });
+    let autoScrollInterval = null;
     
     function autoScroll() {
         scrollAmount += scrollStep;
@@ -157,7 +172,23 @@ function initCarouselAutoRotation() {
         });
     }
     
-    let autoScrollInterval = setInterval(autoScroll, scrollInterval);
+    function startAutoScroll() {
+        if (prefersReducedMotion() || autoScrollInterval !== null) return;
+        autoScrollInterval = setInterval(autoScroll, scrollInterval);
+    }
+
+    function stopAutoScroll() {
+        if (autoScrollInterval !== null) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+    }
+
+    // Pause on hover without allowing duplicate intervals.
+    carousel.addEventListener('mouseenter', stopAutoScroll);
+    carousel.addEventListener('mouseleave', startAutoScroll);
+
+    startAutoScroll();
 }
 
 // Animated Counter for Number Stats
@@ -165,6 +196,16 @@ function initCounters() {
     const counters = document.querySelectorAll('.counter');
     
     if (!counters.length) return;
+
+    if (prefersReducedMotion()) {
+        counters.forEach(counter => {
+            const targetNumber = parseInt(counter.getAttribute('data-target'), 10);
+            if (!Number.isNaN(targetNumber)) {
+                counter.innerText = targetNumber.toLocaleString();
+            }
+        });
+        return;
+    }
     
     const options = {
         threshold: 0.5
@@ -203,6 +244,8 @@ function initCounters() {
 
 // Init Mouse Position for Hover Effects
 function initMousePosition() {
+    if (prefersReducedMotion()) return;
+
     const collectionCards = document.querySelectorAll('.collection-card');
     
     if (!collectionCards.length) return;
@@ -254,6 +297,19 @@ function addPulseAnimationCSS() {
         
         .pulse-animation {
             animation: pulse 1s ease-in-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-animation,
+            .sparkle {
+                animation: none !important;
+            }
+
+            .reveal-section {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
         }
         
         .sparkle-container {
@@ -404,10 +460,23 @@ function initAllAnimations() {
     initCounters();
     initMousePosition();
     
-    // Don't auto-rotate on small screens
-    if (window.innerWidth > 768) {
+    // Don't auto-rotate on small screens or when reduced motion is requested.
+    if (window.innerWidth > 768 && !prefersReducedMotion()) {
         initCarouselAutoRotation();
     }
+}
+
+// If the preference changes while the page is open, reload so every
+// animation initializer is evaluated against the new preference.
+function handleMotionPreferenceChange() {
+    window.location.reload();
+}
+
+if (typeof motionMediaQuery.addEventListener === 'function') {
+    motionMediaQuery.addEventListener('change', handleMotionPreferenceChange);
+} else if (typeof motionMediaQuery.addListener === 'function') {
+    // Safari/older-browser fallback.
+    motionMediaQuery.addListener(handleMotionPreferenceChange);
 }
 
 // Run on page load

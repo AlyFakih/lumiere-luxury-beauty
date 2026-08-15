@@ -1,5 +1,22 @@
 /* Main Styles for Lumière Luxury Beauty E-commerce Website */
 
+/* Local web fonts — self-hosted for deterministic loading */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300 600;
+    font-display: swap;
+    src: url('../fonts/montserrat-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/playfair-display-latin.woff2') format('woff2');
+}
+
 /* Base Styles & Variables */
 :root {
     /* ------------------------------------------------------------------
