@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail | Lumière Luxury Beauty</title>
+    <meta name="description" content="Full product detail, ingredients, application guidance and customer reviews for the Lumière collection.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lumière Luxury Beauty">
+    <meta property="og:title" content="Product Detail | Lumière Luxury Beauty">
+    <meta property="og:description" content="Full product detail, ingredients, application guidance and customer reviews for the Lumière collection.">
+    <meta property="og:image" content="https://lumiere-luxe.netlify.app/images/radiance-serum-main.jpg">
+    <meta property="og:url" content="https://lumiere-luxe.netlify.app/pages/product-detail.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Product Detail | Lumière Luxury Beauty">
+    <meta name="twitter:description" content="Full product detail, ingredients, application guidance and customer reviews for the Lumière collection.">
+    <meta name="twitter:image" content="https://lumiere-luxe.netlify.app/images/radiance-serum-main.jpg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/accessibility.css">
@@ -16,15 +28,15 @@
 <body>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor" aria-hidden="true"></div>
     
     <!-- Navigation (same as other pages) -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main Navigation">
         <!-- Navigation content here (same as index.html) -->
     </nav>
 
     <!-- Cart Sidebar (same as other pages) -->
-    <div class="cart-sidebar">
+    <div class="cart-sidebar" id="cart-sidebar" role="complementary" aria-label="Shopping bag">
         <!-- Cart content here (same as index.html) -->
     </div>
 
@@ -39,8 +51,8 @@
                         <div class="main-image-container">
                             <img src="../images/radiance-serum-main.jpg" alt="Radiance Serum" id="main-product-image">
                             <div class="image-overlay">
-                                <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                                <button class="view-3d-btn"><i class="fas fa-cube"></i> View in 3D</button>
+                                <button class="zoom-btn"><i class="fas fa-search-plus" aria-hidden="true"></i></button>
+                                <button class="view-3d-btn"><i class="fas fa-cube" aria-hidden="true"></i> View in 360°</button>
                             </div>
                         </div>
                     </div>
@@ -68,11 +80,11 @@
                     <h1 class="product-title">Radiance Serum</h1>
                     <div class="product-rating">
                         <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
                         </div>
                         <span class="review-count">42 Reviews</span>
                     </div>
@@ -98,12 +110,12 @@
                     </div>
                     <div class="product-actions">
                         <div class="quantity-selector">
-                            <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                            <button class="quantity-btn minus"><i class="fas fa-minus" aria-hidden="true"></i></button>
                             <input type="number" value="1" min="1" max="10" id="quantity">
-                            <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            <button class="quantity-btn plus"><i class="fas fa-plus" aria-hidden="true"></i></button>
                         </div>
                         <button class="btn btn-primary add-to-cart">Add to Bag</button>
-                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                        <button class="btn-wishlist"><i class="far fa-heart" aria-hidden="true"></i></button>
                     </div>
                     <div class="product-meta">
                         <p><span>SKU:</span> LS-RS-001</p>
@@ -112,15 +124,15 @@
                     </div>
                     <div class="product-extras">
                         <div class="product-extra">
-                            <i class="fas fa-truck"></i>
+                            <i class="fas fa-truck" aria-hidden="true"></i>
                             <p>Free shipping on orders over $75</p>
                         </div>
                         <div class="product-extra">
-                            <i class="fas fa-undo"></i>
+                            <i class="fas fa-undo" aria-hidden="true"></i>
                             <p>30-day free returns</p>
                         </div>
                         <div class="product-extra">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
                             <p>Authenticity guaranteed</p>
                         </div>
                     </div>
@@ -227,11 +239,11 @@
                                 <div class="average-rating">
                                     <span class="rating-number">4.5</span>
                                     <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star-half-alt" aria-hidden="true"></i>
                                     </div>
                                     <span class="review-count">Based on 42 reviews</span>
                                 </div>
@@ -248,11 +260,11 @@
                                     </div>
                                     <div class="review-rating">
                                         <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
+                                            <i class="fas fa-star" aria-hidden="true"></i>
                                         </div>
                                         <span class="review-date">2 months ago</span>
                                     </div>
@@ -266,7 +278,7 @@
                             <button class="pagination-btn active">1</button>
                             <button class="pagination-btn">2</button>
                             <button class="pagination-btn">3</button>
-                            <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <button class="pagination-btn next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
@@ -282,8 +294,8 @@
                 <!-- Related product cards here, similar to homepage -->
             </div>
             <div class="carousel-controls">
-                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                <button class="prev-btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             </div>
         </div>
     </section>
@@ -291,22 +303,23 @@
 </main>
 
     <!-- Footer (same as other pages) -->
-    <footer>
+    <footer aria-label="Footer">
         <!-- Footer content here (same as index.html) -->
     </footer>
 
-    <!-- 3D Viewer Modal -->
+    <!-- Simulated 360 viewer. This rotates a single still with CSS transforms;
+         it is not a 3D model. -->
     <div class="modal-3d-viewer">
         <div class="modal-content">
-            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <button class="close-modal"><i class="fas fa-times" aria-hidden="true"></i></button>
             <div class="viewer-container">
                 <div class="product-3d-model">
                     <!-- 3D model will be loaded here via JavaScript -->
                     <div class="placeholder-3d">
-                        <img src="../images/radiance-serum-main.jpg" alt="Radiance Serum 3D View">
+                        <img src="../images/radiance-serum-main.jpg" alt="Radiance Serum, simulated 360 degree view">
                         <div class="rotate-instruction">
-                            <i class="fas fa-sync-alt"></i>
-                            <p>Drag to rotate</p>
+                            <i class="fas fa-sync-alt" aria-hidden="true"></i>
+                            <p>Drag to rotate &mdash; simulated 360° preview</p>
                         </div>
                     </div>
                 </div>
@@ -322,7 +335,7 @@
 
     <!-- Zoom Modal -->
     <div class="modal-zoom">
-        <button class="close-modal"><i class="fas fa-times"></i></button>
+        <button class="close-modal"><i class="fas fa-times" aria-hidden="true"></i></button>
         <div class="zoom-container">
             <img alt="Zoomed product image" id="zoomed-image">
         </div>

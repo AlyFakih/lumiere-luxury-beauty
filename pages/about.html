@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Lumière Luxury Beauty</title>
+    <meta name="description" content="The story behind Lumière: founded in Paris in 2005, built on clinical rigour, considered sourcing and a refusal to compromise on either.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lumière Luxury Beauty">
+    <meta property="og:title" content="Our Story | Lumière Luxury Beauty">
+    <meta property="og:description" content="The story behind Lumière: founded in Paris in 2005, built on clinical rigour, considered sourcing and a refusal to compromise on either.">
+    <meta property="og:image" content="https://lumiere-luxe.netlify.app/images/founder-portrait.jpg">
+    <meta property="og:url" content="https://lumiere-luxe.netlify.app/pages/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Story | Lumière Luxury Beauty">
+    <meta name="twitter:description" content="The story behind Lumière: founded in Paris in 2005, built on clinical rigour, considered sourcing and a refusal to compromise on either.">
+    <meta name="twitter:image" content="https://lumiere-luxe.netlify.app/images/founder-portrait.jpg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/accessibility.css">
@@ -16,19 +28,19 @@
 <body>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor" aria-hidden="true"></div>
     
     <!-- Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="logo">
-                <a href="../index.html">Lumière</a>
+                <a href="../index.html" aria-label="Lumière - Home">Lumière</a>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links" role="menubar">
                 <ul>
-                    <li class="dropdown">
-                        <a href="category.html">Shop <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
+                    <li class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        <a href="category.html" aria-label="Shop - Browse all products">Shop <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                        <div class="dropdown-content" role="menu">
                             <div class="dropdown-container">
                                 <div class="dropdown-column">
                                     <h4>Makeup</h4>
@@ -75,17 +87,17 @@
             </div>
             <div class="nav-actions">
                 <div class="search-container">
-                    <button class="search-toggle"><i class="fas fa-search"></i></button>
-                    <div class="search-panel">
-                        <input type="text" placeholder="Search for products...">
-                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="search-toggle" aria-label="Search products" aria-expanded="false" aria-controls="search-panel"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    <div class="search-panel" id="search-panel" role="search">
+                        <input type="text" placeholder="Search for products..." aria-label="Search input">
+                        <button class="search-btn" aria-label="Perform search"><i class="fas fa-search" aria-hidden="true"></i></button>
                     </div>
                 </div>
-                <a href="account.html" class="account-link"><i class="fas fa-user"></i></a>
+                <a href="account.html" class="account-link" aria-label="Account"><i class="fas fa-user" aria-hidden="true"></i></a>
                 <div class="cart-container">
-                    <button class="cart-toggle">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count">3</span>
+                    <button class="cart-toggle" aria-label="Open shopping bag" aria-expanded="false" aria-controls="cart-sidebar">
+                        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                        <span class="cart-count" aria-live="polite">3</span>
                     </button>
                 </div>
             </div>
@@ -143,21 +155,21 @@
                     <div class="philosophy-values">
                         <div class="value-item fade-in">
                             <div class="value-icon">
-                                <i class="fas fa-flask"></i>
+                                <i class="fas fa-flask" aria-hidden="true"></i>
                             </div>
                             <h3>Scientific Innovation</h3>
                             <p>Our team of scientists continuously pushes the boundaries of beauty science to create formulations that deliver visible results.</p>
                         </div>
                         <div class="value-item fade-in">
                             <div class="value-icon">
-                                <i class="fas fa-leaf"></i>
+                                <i class="fas fa-leaf" aria-hidden="true"></i>
                             </div>
                             <h3>Natural Luxury</h3>
                             <p>We carefully source the finest natural ingredients from around the world, ensuring each component meets our standard of excellence.</p>
                         </div>
                         <div class="value-item fade-in">
                             <div class="value-icon">
-                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart" aria-hidden="true"></i>
                             </div>
                             <h3>Ethical Approach</h3>
                             <p>Our commitment to sustainability and ethical practices extends to every aspect of our business, from sourcing to packaging.</p>
@@ -301,9 +313,9 @@
                 <div class="testimonial-slide active">
                     <div class="testimonial-content">
                         <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
+                            <i class="fas fa-quote-left" aria-hidden="true"></i>
                             <p>Lumière's products have transformed my skincare routine. The attention to detail and quality of ingredients is unmatched in the beauty industry.</p>
-                            <i class="fas fa-quote-right"></i>
+                            <i class="fas fa-quote-right" aria-hidden="true"></i>
                         </div>
                         <div class="testimonial-author">
                             <p class="author-name">Marguerite Vasseur</p>
@@ -314,9 +326,9 @@
                 <div class="testimonial-slide">
                     <div class="testimonial-content">
                         <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
+                            <i class="fas fa-quote-left" aria-hidden="true"></i>
                             <p>As someone who has tried countless luxury brands, I can confidently say that Lumière stands in a class of its own. Their commitment to excellence is evident in every product.</p>
-                            <i class="fas fa-quote-right"></i>
+                            <i class="fas fa-quote-right" aria-hidden="true"></i>
                         </div>
                         <div class="testimonial-author">
                             <p class="author-name">Olivia Chen</p>
@@ -327,9 +339,9 @@
                 <div class="testimonial-slide">
                     <div class="testimonial-content">
                         <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
+                            <i class="fas fa-quote-left" aria-hidden="true"></i>
                             <p>What sets Lumière apart is not just the quality of their products, but the philosophy behind the brand. Their dedication to sustainability without compromising luxury is refreshing.</p>
-                            <i class="fas fa-quote-right"></i>
+                            <i class="fas fa-quote-right" aria-hidden="true"></i>
                         </div>
                         <div class="testimonial-author">
                             <p class="author-name">Theo Lindqvist</p>
@@ -339,13 +351,13 @@
                 </div>
             </div>
             <div class="testimonial-controls">
-                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-prev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                 <div class="testimonial-dots">
                     <button class="dot active" data-slide="0"></button>
                     <button class="dot" data-slide="1"></button>
                     <button class="dot" data-slide="2"></button>
                 </div>
-                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                <button class="testimonial-next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             </div>
         </div>
     </section>
@@ -367,16 +379,16 @@
 </main>
 
     <!-- Footer -->
-    <footer>
+    <footer aria-label="Footer">
         <div class="footer-container">
             <div class="footer-column">
                 <div class="footer-logo">Lumière</div>
                 <p>Luxury beauty products crafted with the finest ingredients for the discerning individual.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fab fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -410,11 +422,11 @@
         <div class="footer-bottom">
             <p>&copy; 2025 Lumière Beauty. All rights reserved.</p>
             <div class="payment-methods">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-amex"></i>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-cc-apple-pay"></i>
+                <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                <i class="fab fa-cc-paypal" aria-hidden="true"></i>
+                <i class="fab fa-cc-apple-pay" aria-hidden="true"></i>
             </div>
         </div>
     </footer>

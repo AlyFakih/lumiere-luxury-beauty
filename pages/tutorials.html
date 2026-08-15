@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty Tutorials | Lumière Luxury Beauty</title>
+    <meta name="description" content="Expert tutorials and techniques from the Lumière team, covering skincare routines, application method and seasonal looks.">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lumière Luxury Beauty">
+    <meta property="og:title" content="Beauty Masterclass | Lumière Luxury Beauty">
+    <meta property="og:description" content="Expert tutorials and techniques from the Lumière team, covering skincare routines, application method and seasonal looks.">
+    <meta property="og:image" content="https://lumiere-luxe.netlify.app/images/radiant-skin-tutorial.jpg">
+    <meta property="og:url" content="https://lumiere-luxe.netlify.app/pages/tutorials.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beauty Masterclass | Lumière Luxury Beauty">
+    <meta name="twitter:description" content="Expert tutorials and techniques from the Lumière team, covering skincare routines, application method and seasonal looks.">
+    <meta name="twitter:image" content="https://lumiere-luxe.netlify.app/images/radiant-skin-tutorial.jpg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/accessibility.css">
@@ -16,19 +28,19 @@
 <body>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor" aria-hidden="true"></div>
     
     <!-- Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="logo">
-                <a href="../index.html">Lumière</a>
+                <a href="../index.html" aria-label="Lumière - Home">Lumière</a>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links" role="menubar">
                 <ul>
-                    <li class="dropdown">
-                        <a href="category.html">Shop <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
+                    <li class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        <a href="category.html" aria-label="Shop - Browse all products">Shop <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                        <div class="dropdown-content" role="menu">
                             <div class="dropdown-container">
                                 <div class="dropdown-column">
                                     <h4>Makeup</h4>
@@ -75,17 +87,17 @@
             </div>
             <div class="nav-actions">
                 <div class="search-container">
-                    <button class="search-toggle"><i class="fas fa-search"></i></button>
-                    <div class="search-panel">
-                        <input type="text" placeholder="Search for products...">
-                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="search-toggle" aria-label="Search products" aria-expanded="false" aria-controls="search-panel"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    <div class="search-panel" id="search-panel" role="search">
+                        <input type="text" placeholder="Search for products..." aria-label="Search input">
+                        <button class="search-btn" aria-label="Perform search"><i class="fas fa-search" aria-hidden="true"></i></button>
                     </div>
                 </div>
-                <a href="account.html" class="account-link"><i class="fas fa-user"></i></a>
+                <a href="account.html" class="account-link" aria-label="Account"><i class="fas fa-user" aria-hidden="true"></i></a>
                 <div class="cart-container">
-                    <button class="cart-toggle">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count">3</span>
+                    <button class="cart-toggle" aria-label="Open shopping bag" aria-expanded="false" aria-controls="cart-sidebar">
+                        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                        <span class="cart-count" aria-live="polite">3</span>
                     </button>
                 </div>
             </div>
@@ -125,7 +137,7 @@
                     <div class="video-thumbnail">
                         <img src="../images/radiant-skin-tutorial.jpg" alt="Radiant Skin Tutorial">
                         <div class="play-button">
-                            <i class="fas fa-play"></i>
+                            <i class="fas fa-play" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -134,7 +146,7 @@
                     <h2>Achieving Radiant Skin with Lumière</h2>
                     <p class="tutorial-meta">
                         <span class="tutorial-author">By Sophie Laurent, Founder</span>
-                        <span class="tutorial-duration"><i class="far fa-clock"></i> 15 minutes</span>
+                        <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 15 minutes</span>
                     </p>
                     <p class="tutorial-description">Discover the secrets to achieving that coveted luminous glow with our signature skincare routine. In this masterclass, our founder Sophie Laurent guides you through a step-by-step process using our award-winning Radiance Collection.</p>
                     <div class="featured-products">
@@ -161,31 +173,31 @@
             <div class="categories-grid">
                 <a href="#skincare" class="category-card active" data-category="skincare">
                     <div class="category-icon">
-                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint" aria-hidden="true"></i>
                     </div>
                     <h3>Skincare</h3>
                 </a>
                 <a href="#makeup" class="category-card" data-category="makeup">
                     <div class="category-icon">
-                        <i class="fas fa-magic"></i>
+                        <i class="fas fa-magic" aria-hidden="true"></i>
                     </div>
                     <h3>Makeup</h3>
                 </a>
                 <a href="#haircare" class="category-card" data-category="haircare">
                     <div class="category-icon">
-                        <i class="fas fa-spa"></i>
+                        <i class="fas fa-spa" aria-hidden="true"></i>
                     </div>
                     <h3>Hair & Body</h3>
                 </a>
                 <a href="#seasonal" class="category-card" data-category="seasonal">
                     <div class="category-icon">
-                        <i class="fas fa-snowflake"></i>
+                        <i class="fas fa-snowflake" aria-hidden="true"></i>
                     </div>
                     <h3>Seasonal</h3>
                 </a>
                 <a href="#expert" class="category-card" data-category="expert">
                     <div class="category-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
                     </div>
                     <h3>Expert Tips</h3>
                 </a>
@@ -210,13 +222,13 @@
                     <div class="tutorial-thumbnail">
                         <img src="../images/photo-1570172619644.jpg" alt="Morning Skincare Routine">
                         <div class="tutorial-badge beginner">Beginner</div>
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        <div class="play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
                     </div>
                     <div class="tutorial-content">
                         <h3>5-Step Morning Skincare Routine</h3>
                         <p class="tutorial-meta">
-                            <span class="tutorial-duration"><i class="far fa-clock"></i> 8 minutes</span>
-                            <span class="tutorial-views"><i class="far fa-eye"></i> 12.4K views</span>
+                            <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 8 minutes</span>
+                            <span class="tutorial-views"><i class="far fa-eye" aria-hidden="true"></i> 12.4K views</span>
                         </p>
                         <p class="tutorial-excerpt">Learn the essential steps for a rejuvenating morning skincare routine that will leave your skin refreshed and glowing throughout the day.</p>
                         <a href="#" class="tutorial-link">Watch Tutorial</a>
@@ -226,13 +238,13 @@
                     <div class="tutorial-thumbnail">
                         <img src="../images/photo-1598440947619.jpg" alt="Advanced Serums Guide">
                         <div class="tutorial-badge intermediate">Intermediate</div>
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        <div class="play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
                     </div>
                     <div class="tutorial-content">
                         <h3>Understanding Serums & How to Layer Them</h3>
                         <p class="tutorial-meta">
-                            <span class="tutorial-duration"><i class="far fa-clock"></i> 12 minutes</span>
-                            <span class="tutorial-views"><i class="far fa-eye"></i> 8.7K views</span>
+                            <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 12 minutes</span>
+                            <span class="tutorial-views"><i class="far fa-eye" aria-hidden="true"></i> 8.7K views</span>
                         </p>
                         <p class="tutorial-excerpt">Demystify the world of serums and learn how to effectively layer multiple formulations for maximum benefits and targeted results.</p>
                         <a href="#" class="tutorial-link">Watch Tutorial</a>
@@ -242,13 +254,13 @@
                     <div class="tutorial-thumbnail">
                         <img src="../images/photo-1540555700478.jpg" alt="Anti-Aging Facial Massage">
                         <div class="tutorial-badge advanced">Advanced</div>
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        <div class="play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
                     </div>
                     <div class="tutorial-content">
                         <h3>Anti-Aging Facial Massage Techniques</h3>
                         <p class="tutorial-meta">
-                            <span class="tutorial-duration"><i class="far fa-clock"></i> 18 minutes</span>
-                            <span class="tutorial-views"><i class="far fa-eye"></i> 15.2K views</span>
+                            <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 18 minutes</span>
+                            <span class="tutorial-views"><i class="far fa-eye" aria-hidden="true"></i> 15.2K views</span>
                         </p>
                         <p class="tutorial-excerpt">Master advanced facial massage techniques that stimulate collagen production, reduce fine lines, and provide a natural face lift effect.</p>
                         <a href="#" class="tutorial-link">Watch Tutorial</a>
@@ -258,13 +270,13 @@
                     <div class="tutorial-thumbnail">
                         <img src="../images/photo-1556228578.jpg" alt="Night Recovery Routine">
                         <div class="tutorial-badge intermediate">Intermediate</div>
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        <div class="play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
                     </div>
                     <div class="tutorial-content">
                         <h3>Overnight Skin Recovery Routine</h3>
                         <p class="tutorial-meta">
-                            <span class="tutorial-duration"><i class="far fa-clock"></i> 10 minutes</span>
-                            <span class="tutorial-views"><i class="far fa-eye"></i> 9.3K views</span>
+                            <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 10 minutes</span>
+                            <span class="tutorial-views"><i class="far fa-eye" aria-hidden="true"></i> 9.3K views</span>
                         </p>
                         <p class="tutorial-excerpt">Optimize your skin's natural nighttime recovery process with this carefully crafted evening routine featuring our Regeneration Collection.</p>
                         <a href="#" class="tutorial-link">Watch Tutorial</a>
@@ -274,13 +286,13 @@
                     <div class="tutorial-thumbnail">
                         <img src="../images/photo-1526947425960.jpg" alt="Hydration Essentials">
                         <div class="tutorial-badge beginner">Beginner</div>
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        <div class="play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
                     </div>
                     <div class="tutorial-content">
                         <h3>The Art of Facial Hydration</h3>
                         <p class="tutorial-meta">
-                            <span class="tutorial-duration"><i class="far fa-clock"></i> 7 minutes</span>
-                            <span class="tutorial-views"><i class="far fa-eye"></i> 10.8K views</span>
+                            <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 7 minutes</span>
+                            <span class="tutorial-views"><i class="far fa-eye" aria-hidden="true"></i> 10.8K views</span>
                         </p>
                         <p class="tutorial-excerpt">Learn the fundamentals of proper skin hydration and discover how to maintain optimal moisture levels throughout all seasons.</p>
                         <a href="#" class="tutorial-link">Watch Tutorial</a>
@@ -290,13 +302,13 @@
                     <div class="tutorial-thumbnail">
                         <img src="../images/photo-1560750588.jpg" alt="Chemical Exfoliation">
                         <div class="tutorial-badge advanced">Advanced</div>
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        <div class="play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
                     </div>
                     <div class="tutorial-content">
                         <h3>Mastering Chemical Exfoliation</h3>
                         <p class="tutorial-meta">
-                            <span class="tutorial-duration"><i class="far fa-clock"></i> 15 minutes</span>
-                            <span class="tutorial-views"><i class="far fa-eye"></i> 7.5K views</span>
+                            <span class="tutorial-duration"><i class="far fa-clock" aria-hidden="true"></i> 15 minutes</span>
+                            <span class="tutorial-views"><i class="far fa-eye" aria-hidden="true"></i> 7.5K views</span>
                         </p>
                         <p class="tutorial-excerpt">An expert guide to chemical exfoliants, from AHAs to BHAs, teaching you how to incorporate them safely into your routine for transformative results.</p>
                         <a href="#" class="tutorial-link">Watch Tutorial</a>
@@ -320,7 +332,7 @@
                 <div class="tip-slide">
                     <div class="tip-card">
                         <div class="tip-icon">
-                            <i class="fas fa-lightbulb"></i>
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <h3>Store Eye Products in the Refrigerator</h3>
                         <p>Keep your eye creams and serums in the refrigerator to enhance their de-puffing effects and extend their shelf life.</p>
@@ -333,7 +345,7 @@
                 <div class="tip-slide">
                     <div class="tip-card">
                         <div class="tip-icon">
-                            <i class="fas fa-lightbulb"></i>
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <h3>Apply Skincare to Damp Skin</h3>
                         <p>For maximum absorption, apply your hydrating serums and moisturizers to slightly damp skin, within 60 seconds after cleansing.</p>
@@ -346,7 +358,7 @@
                 <div class="tip-slide">
                     <div class="tip-card">
                         <div class="tip-icon">
-                            <i class="fas fa-lightbulb"></i>
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
                         </div>
                         <h3>The "Less is More" Foundation Rule</h3>
                         <p>Start with a small amount of foundation and build coverage only where needed. This creates a more natural, skin-like finish.</p>
@@ -358,13 +370,13 @@
                 </div>
             </div>
             <div class="tips-controls">
-                <button class="tip-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="tip-prev"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                 <div class="tip-dots">
                     <button class="dot active" data-slide="0"></button>
                     <button class="dot" data-slide="1"></button>
                     <button class="dot" data-slide="2"></button>
                 </div>
-                <button class="tip-next"><i class="fas fa-chevron-right"></i></button>
+                <button class="tip-next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             </div>
         </div>
     </section>
@@ -381,37 +393,37 @@
                 <a href="#" class="instagram-item">
                     <img src="../images/photo-1503236823255.jpg" alt="Instagram Post">
                     <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
                 </a>
                 <a href="#" class="instagram-item">
                     <img src="../images/instagram-post-2.jpg" alt="Instagram Post">
                     <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
                 </a>
                 <a href="#" class="instagram-item">
                     <img src="../images/instagram-post-3.jpg" alt="Instagram Post">
                     <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
                 </a>
                 <a href="#" class="instagram-item">
                     <img src="../images/instagram-post-1.jpg" alt="Instagram Post">
                     <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
                 </a>
                 <a href="#" class="instagram-item">
                     <img src="../images/instagram-post-4.jpg" alt="Instagram Post">
                     <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
                 </a>
                 <a href="#" class="instagram-item">
                     <img src="../images/photo-1512496015851.jpg" alt="Instagram Post">
                     <div class="instagram-overlay">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
                     </div>
                 </a>
             </div>
@@ -447,16 +459,16 @@
 </main>
 
     <!-- Footer -->
-    <footer>
+    <footer aria-label="Footer">
         <div class="footer-container">
             <div class="footer-column">
                 <div class="footer-logo">Lumière</div>
                 <p>Luxury beauty products crafted with the finest ingredients for the discerning individual.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fab fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -490,11 +502,11 @@
         <div class="footer-bottom">
             <p>&copy; 2025 Lumière Beauty. All rights reserved.</p>
             <div class="payment-methods">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-amex"></i>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-cc-apple-pay"></i>
+                <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                <i class="fab fa-cc-paypal" aria-hidden="true"></i>
+                <i class="fab fa-cc-apple-pay" aria-hidden="true"></i>
             </div>
         </div>
     </footer>
@@ -502,11 +514,11 @@
     <!-- Video Modal -->
     <div class="video-modal">
         <div class="modal-content">
-            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <button class="close-modal"><i class="fas fa-times" aria-hidden="true"></i></button>
             <div class="video-container video-placeholder">
                 <img class="modal-poster-img" src="" alt="Tutorial preview">
                 <div class="video-placeholder-overlay">
-                    <i class="fas fa-play-circle"></i>
+                    <i class="fas fa-play-circle" aria-hidden="true"></i>
                     <p class="modal-video-caption"></p>
                     <span class="video-placeholder-note">Full video coming soon</span>
                 </div>
