@@ -48,7 +48,7 @@
                         <div class="main-image-container">
                             <img src="../images/radiance-serum-main.jpg" alt="Radiance Serum" id="main-product-image">
                             <div class="image-overlay">
-                                <button class="zoom-btn"><i class="fas fa-search-plus" aria-hidden="true"></i></button>
+                                <button class="zoom-btn" aria-label="Zoom product image"><i class="fas fa-search-plus" aria-hidden="true"></i></button>
                                 <button class="view-3d-btn"><i class="fas fa-cube" aria-hidden="true"></i> View in 360°</button>
                             </div>
                         </div>
@@ -107,12 +107,12 @@
                     </div>
                     <div class="product-actions">
                         <div class="quantity-selector">
-                            <button class="quantity-btn minus"><i class="fas fa-minus" aria-hidden="true"></i></button>
-                            <input type="number" value="1" min="1" max="10" id="quantity">
-                            <button class="quantity-btn plus"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                            <button class="quantity-btn minus" aria-label="Decrease quantity"><i class="fas fa-minus" aria-hidden="true"></i></button>
+                            <input type="number" value="1" min="1" max="10" id="quantity" aria-label="Quantity">
+                            <button class="quantity-btn plus" aria-label="Increase quantity"><i class="fas fa-plus" aria-hidden="true"></i></button>
                         </div>
                         <button class="btn btn-primary add-to-cart">Add to Bag</button>
-                        <button class="btn-wishlist"><i class="far fa-heart" aria-hidden="true"></i></button>
+                        <button class="btn-wishlist" aria-label="Add to wishlist"><i class="far fa-heart" aria-hidden="true"></i></button>
                     </div>
                     <div class="product-meta">
                         <p><span>SKU:</span> LS-RS-001</p>
@@ -275,7 +275,7 @@
                             <button class="pagination-btn active">1</button>
                             <button class="pagination-btn">2</button>
                             <button class="pagination-btn">3</button>
-                            <button class="pagination-btn next"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                            <button class="pagination-btn next" aria-label="Next page of products"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
@@ -291,8 +291,8 @@
                 <!-- Related product cards here, similar to homepage -->
             </div>
             <div class="carousel-controls">
-                <button class="prev-btn"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                <button class="next-btn"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                <button class="prev-btn" aria-label="Previous products"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                <button class="next-btn" aria-label="Next products"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             </div>
         </div>
     </section>
@@ -308,7 +308,7 @@
          it is not a 3D model. -->
     <div class="modal-3d-viewer">
         <div class="modal-content">
-            <button class="close-modal"><i class="fas fa-times" aria-hidden="true"></i></button>
+            <button class="close-modal" aria-label="Close dialog"><i class="fas fa-times" aria-hidden="true"></i></button>
             <div class="viewer-container">
                 <div class="product-3d-model">
                     <!-- 3D model will be loaded here via JavaScript -->
@@ -332,7 +332,7 @@
 
     <!-- Zoom Modal -->
     <div class="modal-zoom">
-        <button class="close-modal"><i class="fas fa-times" aria-hidden="true"></i></button>
+        <button class="close-modal" aria-label="Close dialog"><i class="fas fa-times" aria-hidden="true"></i></button>
         <div class="zoom-container">
             <img alt="Zoomed product image" id="zoomed-image">
         </div>
